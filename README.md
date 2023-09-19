@@ -1,4 +1,5 @@
-# HabitMax
+# UCL Draft App
 
-Habitmax is a gamified habit tracker web application that allows users to track individual habits.
+An application for anyone who want to combine the excitement of Fantasy Football with the beautiful game of Soccer.
 
+...details to be provided as app develops
