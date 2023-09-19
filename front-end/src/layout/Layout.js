@@ -28,11 +28,11 @@ function Layout() {
 
   return (
     <div className="container-fluid">
-      <div className="col h-100">
-        <div className="row-md-2 side-bar">
+      <div className="row h-100">
+        <div className="col-md-2 side-bar">
           <Menu />
         </div>
-        <div className="row justify-content-center p-4 m-3">
+        <div className="col">
           <Routes />
         </div>
       </div>

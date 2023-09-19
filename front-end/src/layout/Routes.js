@@ -3,8 +3,8 @@ import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Dashboard from "../dashboard/Dashboard";
 import NotFound from "./NotFound";
-import Habits from "../pages/Habits"
-import HabitForm from "../pages/HabitsForm";
+import UpdateData from "../updatePage/UpdateData";
+
 
 /**
  * Defines all the routes for the application.
@@ -13,7 +13,7 @@ import HabitForm from "../pages/HabitsForm";
  *
  * @returns {JSX.Element}
  */
-function Routes({habits}) {
+function Routes() {
   return (
     <Switch>
       <Route exact={true} path="/">
@@ -21,15 +21,11 @@ function Routes({habits}) {
       </Route>
 
       <Route path="/dashboard">
-        <Dashboard habits={habits}/>
+        <Dashboard />
       </Route>
 
-      <Route exact={true} path="/habits">
-        <Habits habits={habits}/>
-      </Route>
-
-      <Route exact={true} path="/habits/new">
-        <HabitForm />
+      <Route exact={true} path="/updatedata">
+        <UpdateData />
       </Route>
 
       <Route>

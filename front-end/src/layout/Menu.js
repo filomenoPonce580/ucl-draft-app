@@ -36,13 +36,13 @@ function Menu() {
                 </Link>
               </li>
               <li className="nav-item col">
-                <Link className="nav-link" to="/habits/new">
+                <Link className="nav-link" to="/updatedata">
                   <span className="oi oi-plus" />
                   &nbsp;Update Data
                 </Link>
               </li>
               <li className="nav-item col">
-                <Link className="nav-link" to="/habits">
+                <Link className="nav-link" to="/scoreboard">
                   <span className="oi oi-layers" />
                   &nbsp;Scoreboard
                 </Link>
