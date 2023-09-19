@@ -1,55 +1,29 @@
 {
   "name": "ucldraft",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Drafting app for Uefa Champions League",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "knex": "^0.21.12",
-    "nanoid": "^3.1.20",
-    "npm-run-all": "^4.1.5",
-    "pg": "^8.5.1",
-    "pino": "^6.11.0",
-    "pino-http": "^5.3.0",
-    "pino-pretty": "^4.3.0"
-  },
-  "devDependencies": {
-    "jest": "^26.6.3",
-    "nodemon": "^2.0.6",
-    "supertest": "^6.1.1"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/filomenoPonce580/ucl-draft-app"
   },
   "scripts": {
-    "start": "node src/server.js",
-    "start:dev": "nodemon src/server.js",
-    "test": "npx cross-env LOG_LEVEL=warn jest --runInBand --detectOpenHandles --forceExit --config ./test/jest.config.js",
-    "test:drop-database": "node test/drop-database",
-    "test:start": "npx cross-env LOG_LEVEL=warn NODE_ENV=test npm run test:start:run",
-    "test:start:run": "run-s test:drop-database start "
+    "build": "npm -prefix front-end run build",
+    "preinstall": "cd ./back-end && npm install",
+    "install": "cd ./front-end && npm install",
+    "start": "npx concurrently 'npm run start:backend' 'npm run start:frontend'",
+    "start:backend": "npm --prefix ./back-end start",
+    "start:frontend": "npm --prefix ./front-end start",
+    "start:dev": "npx concurrently \"npm run start:dev --prefix ./back-end\" \"npm start --prefix ./front-end\" ",
+    "test": "npm run test:frontend && npm run test:backend",
+    "test:backend": "npm test --prefix ./back-end",
+    "test:frontend": "npm test --prefix ./front-end"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "keywords": [],
+  "author": {
+    "name": "Filomeno Ponce",
+    "email": "filomenoponce580@gmail.com",
+    "url": "https://github.com/filomenoPonce580"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "license": "UNLICENSED"
 }
