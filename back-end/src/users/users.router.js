@@ -5,35 +5,32 @@
  */
 
 const router = require("express").Router();
-const controller = require("./habits.controller");
+const controller = require("./users.controller");
 const methodNotAllowed = require("../errors/methodNotAllowed");
 
-// full route  = /habits
+// full route  = /users
 router
   .route("/")
   .get(controller.list)
-  //post to create a history record when habit + or - is pressed
-  .post(controller.createNewHistory)
   .all(methodNotAllowed);
 
-// full route = /habits/new
+// full route = /users/new
 router
   .route("/new")
-  //Create new habit
-  .post(controller.createNewHabit)
+  //Create new user
+  .post(controller.create)
   .all(methodNotAllowed);
 
-// full route = /habits/habit_id
+// full route = /users/userId
 router
-  .route("/:habit_id")
+  .route("/:userId")
   .get(controller.read)
-  //button to delete pressed, send full json with isActive marked false
   .put(controller.update)
   .all(methodNotAllowed);
 
-// full route = /habits/habit_id/edit
+// full route = /users/userId/edit
 router
-  .route("/:habit_id/edit")
+  .route("/:userId/edit")
   .get(controller.read)
   .put(controller.update)
   .all(methodNotAllowed);

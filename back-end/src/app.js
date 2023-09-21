@@ -1,19 +1,20 @@
 const path = require("path");
-
 require("dotenv").config({ path: path.join(__dirname, "..", ".env") });
-
 const express = require("express");
 const cors = require("cors");
-const habitsRouter = require("./habits/habits.router");
+const app = express();
 
 const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound");
 
-const app = express();
-
 app.use(cors());
 app.use(express.json());
-app.use("/habits", habitsRouter);
+
+const usersRouter = require("./users/users.router");
+const teamsRouter = require ("./teams/teams.router")
+
+app.use("/users", usersRouter);
+app.use("/teams", teamsRouter)
 
 app.use(notFound);
 app.use(errorHandler);
