@@ -11,10 +11,10 @@ app.use(cors());
 app.use(express.json());
 
 const usersRouter = require("./users/users.router");
-const teamsRouter = require ("./teams/teams.router")
+//const teamsRouter = require ("./teams/teams.router")
 
 app.use("/users", usersRouter);
-app.use("/teams", teamsRouter)
+//app.use("/teams", teamsRouter)
 
 app.use(notFound);
 app.use(errorHandler);

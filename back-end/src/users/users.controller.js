@@ -5,22 +5,22 @@ const hasProperties = require("../errors/hasProperties");
 // Application Middleware/Validators
 const hasRequiredProperties = hasProperties("name", "team1", "team2", "team3", "team4");
 
-function validateHasOnlyCorrectProperties(req, res, next) {
-  const { data = {} } = req.body;
+// function validateHasOnlyCorrectProperties(req, res, next) {
+//   const { data = {} } = req.body;
 
-  const invalidFields = Object.keys(data).filter(
-    (field) => !VALID_PROPERTIES.includes(field)
-  );
+//   const invalidFields = Object.keys(data).filter(
+//     (field) => !VALID_PROPERTIES.includes(field)
+//   );
 
-  if (invalidFields.length) {
-    return next({
-      status: 400,
-      message: `Invalid field(s): ${invalidFields.join(", ")}`,
-    });
-  } else {
-    next();
-  }
-}
+//   if (invalidFields.length) {
+//     return next({
+//       status: 400,
+//       message: `Invalid field(s): ${invalidFields.join(", ")}`,
+//     });
+//   } else {
+//     next();
+//   }
+// }
 
 function validateBodyHasData(req, res, next) {
   const data = req.body.data;
@@ -46,6 +46,19 @@ async function validateUserExists(req, res, next) {
   });
 }
 
+async function validateName(req, res, next){
+  const name = req.body.data.name;
+
+  if( name.length > 30){
+    next({
+      status: 400,
+      message: `Name must be shorter than 30 characters`
+    })
+  }else{
+    next()
+  }
+}
+
 // RESTful API Functions
 async function list(req, res) {
   res.json({ data: await service.list() });
@@ -63,37 +76,49 @@ async function create(req, res) {
   res.status(201).json({ data: createdUser});
 }
 
+async function update(req, res, next) {
+  const updatedInfo = req.body.data
+
+  const oldUserData = res.locals.reservation
+  const updatedUser = {
+    ...oldUserData,
+    ...updatedInfo 
+  }
+
+  await service.update(updatedUser)
+
+  const update = await service.read(user.userId)
+  const data = update
+
+  res.status(200).json({ data })
+}
+
 
 async function read(req, res, next) {
-  res.status(200).json({ data: res.locals.habit });
+  res.status(200).json({ data: res.locals.user });
 }
 
 async function update(req, res, next) {
-  const updatedHabit = {
+  const updatedUser = {
     ...req.body.data,
-    habit_id: res.locals.habit.habit_id,
+    userId: res.locals.user.userId,
   };
-  res.json({ data: await service.update(updatedHabit) });
+  res.json({ data: await service.update(updatedUser) });
 }
 
 module.exports = {
   list: asyncErrorBoundary(list),
-  createNewHabit: [
-    validateBodyHasData,
-    validateHasOnlyCorrectProperties,
-    validateHasRequiredProperties,
-    validateHabitNameProperty,
-    validateCategoryProperty,
-    validateDifficultyProperty,
-    asyncErrorBoundary(createNewHabit),
+  create: [
+    //validateBodyHasData,
+    //validateHasOnlyCorrectProperties,
+    hasRequiredProperties,
+    asyncErrorBoundary(create),
   ],
-  createNewHistory: [
-    validateBodyHasData,
-    validateHabitExists,
-    validateHistoryHasOnlyCorrectProperties,
-    validateEventId,
-    validateCategoryId,
-    asyncErrorBoundary(createNewHistory),
+  updateUser: [
+    asyncErrorBoundary(validateBodyHasData),
+    asyncErrorBoundary(validateUserExists),
+    hasRequiredProperties,
+    asyncErrorBoundary(update)
   ],
   read: [asyncErrorBoundary(validateUserExists), asyncErrorBoundary(read)],
 };

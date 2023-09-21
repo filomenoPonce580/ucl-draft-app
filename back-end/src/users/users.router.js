@@ -25,14 +25,14 @@ router
 router
   .route("/:userId")
   .get(controller.read)
-  .put(controller.update)
+  .put(controller.updateUser)
   .all(methodNotAllowed);
 
 // full route = /users/userId/edit
-router
-  .route("/:userId/edit")
-  .get(controller.read)
-  .put(controller.update)
-  .all(methodNotAllowed);
+// router
+//   .route("/:userId/edit")
+//   .get(controller.read)
+//   .put(controller.update)
+//   .all(methodNotAllowed);
 
 module.exports = router;
