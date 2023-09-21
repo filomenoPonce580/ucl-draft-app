@@ -1,0 +1,290 @@
+[
+    {
+      "teamId": 0,
+      "teamName": "Antwerp",
+      "abbreviation": "ANT",
+      "country": "BEL",
+      "results": ["L"],
+      "goalsFor": 0,
+      "goalsAgainst": 5
+    },
+    {
+      "teamId": 1,
+      "teamName": "Arsenal",
+      "abbreviation": "ARS",
+      "country": "ENG",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 2,
+      "teamName": "Atletico de Madrid",
+      "abbreviation": "ATM",
+      "country": "ESP",
+      "results": ["D"],
+      "goalsFor": 1,
+      "goalsAgainst": 1
+    },
+    {
+      "teamId": 3,
+      "teamName": "Barcelona",
+      "abbreviation": "BAR",
+      "country": "ESP",
+      "results": ["W"],
+      "goalsFor": 5,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 4,
+      "teamName": "Bayern Munich",
+      "abbreviation": "BAY",
+      "country": "GER",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 5,
+      "teamName": "Benfica",
+      "abbreviation": "BEN",
+      "country": "POR",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 6,
+      "teamName": "Braga",
+      "abbreviation": "BRA",
+      "country": "POR",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 7,
+      "teamName": "Celtic",
+      "abbreviation": "CEL",
+      "country": "SCO",
+      "results": ["L"],
+      "goalsFor": 0,
+      "goalsAgainst": 2
+    },
+    {
+      "teamId": 8,
+      "teamName": "Copenhagen",
+      "abbreviation": "COP",
+      "country": "DEN",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 9,
+      "teamName": "Crvena Zvezda",
+      "abbreviation": "CRZ",
+      "country": "SRB",
+      "results": ["L"],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 10,
+      "teamName": "Dortmund",
+      "abbreviation": "DOR",
+      "country": "GER",
+      "results": ["L"],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 11,
+      "teamName": "FC Porto",
+      "abbreviation": "POR",
+      "country": "POR",
+      "results": ["W"],
+      "goalsFor": 3,
+      "goalsAgainst": 1
+    },
+    {
+      "teamId": 12,
+      "teamName": "Feyenoord",
+      "abbreviation": "FEY",
+      "country": "NED",
+      "results": ["W"],
+      "goalsFor": 2,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 13,
+      "teamName": "Galatasaray",
+      "abbreviation": "GAL",
+      "country": "TUR",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 14,
+      "teamName": "Inter Milan",
+      "abbreviation": "INT",
+      "country": "ITA",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 15,
+      "teamName": "Lazio",
+      "abbreviation": "LAZ",
+      "country": "ITA",
+      "results": ["D"],
+      "goalsFor": 1,
+      "goalsAgainst": 1
+    },
+    {
+      "teamId": 16,
+      "teamName": "Leipzig",
+      "abbreviation": "LEI",
+      "country": "GER",
+      "results": ["W"],
+      "goalsFor": 3,
+      "goalsAgainst": 1
+    },
+    {
+      "teamId": 17,
+      "teamName": "Lens",
+      "abbreviation": "LEN",
+      "country": "FRA",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 18,
+      "teamName": "Manchester City",
+      "abbreviation": "MCI",
+      "country": "ENG",
+      "results": ["W"],
+      "goalsFor": 3,
+      "goalsAgainst": 1
+    },
+    {
+      "teamId": 19,
+      "teamName": "Manchester United",
+      "abbreviation": "MAN",
+      "country": "ENG",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 20,
+      "teamName": "AC Milan",
+      "abbreviation": "MIL",
+      "country": "ITA",
+      "results": ["D"],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 21,
+      "teamName": "Napoli",
+      "abbreviation": "NAP",
+      "country": "ITA",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 22,
+      "teamName": "Newcastle",
+      "abbreviation": "NEW",
+      "country": "ENG",
+      "results": ["D"],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 23,
+      "teamName": "Paris Saint Germain",
+      "abbreviation": "PSG",
+      "country": "FRA",
+      "results": ["W"],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 24,
+      "teamName": "PSV",
+      "abbreviation": "PSV",
+      "country": "NED",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 25,
+      "teamName": "Real Madrid",
+      "abbreviation": "RMA",
+      "country": "ESP",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 26,
+      "teamName": "Real Sociedad",
+      "abbreviation": "SOC",
+      "country": "ESP",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 27,
+      "teamName": "Salzburg",
+      "abbreviation": "SAL",
+      "country": "AUT",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 28,
+      "teamName": "Sevilla",
+      "abbreviation": "SEV",
+      "country": "ESP",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 29,
+      "teamName": "Shakhtar Donetsk",
+      "abbreviation": "SHA",
+      "country": "UKR",
+      "results": ["L"],
+      "goalsFor": 1,
+      "goalsAgainst": 3
+    },
+    {
+      "teamId": 30,
+      "teamName": "Union Berlin",
+      "abbreviation": "UNI",
+      "country": "GER",
+      "results": [],
+      "goalsFor": 0,
+      "goalsAgainst": 0
+    },
+    {
+      "teamId": 31,
+      "teamName": "Young Boys",
+      "abbreviation": "YB",
+      "country": "SUI",
+      "results": ["L"],
+      "goalsFor": 1,
+      "goalsAgainst": 3
+    }
+  ]

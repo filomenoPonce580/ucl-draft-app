@@ -1,0 +1,58 @@
+[
+    {
+      "name": "LG",
+      "userId": 1,
+      "team1": 18,
+      "team2": 20,
+      "team3": 11,
+      "team4": 17
+    },
+    {
+      "name": "Alex",
+      "userId": 0,
+      "team1": 4,
+      "team2": 28,
+      "team3": 26,
+      "team4": 31
+    },
+    {
+      "name": "Jr",
+      "userId": 3,
+      "team1": 3,
+      "team2": 16,
+      "team3": 5,
+      "team4": 29
+    },
+    {
+      "name": "Chase",
+      "userId": 4,
+      "team1": 1,
+      "team2": 19,
+      "team3": 22,
+      "team4": 30
+    },
+    {
+      "name": "Gus",
+      "userId": 5,
+      "team1": 25,
+      "team2": 12,
+      "team3": 24,
+      "team4": 15
+    },
+    {
+      "name": "Tots",
+      "userId": 6,
+      "team1": 14,
+      "team2": 23,
+      "team3": 13,
+      "team4": 6
+    },
+    {
+      "name": "Cosso",
+      "userId": 7,
+      "team1": 21,
+      "team2": 2,
+      "team3": 10,
+      "team4": 27
+    }
+]
