@@ -1,16 +1,16 @@
 const knex = require("../db/connection");
 
-//returns the reservation that matched the given reservation id
+//returns the user that matched the given user id
 function read(userId) {
   return knex("users").select("*").where({ userId: userId }).first();
 }
 
-// returns all habits with the given date with all fields
+// returns all users with the given date with all fields
 function list() {
   return knex("users").select("*");
 }
 
-// return the pushed new reservation to the database and updates the created records
+// return the pushed new user to the database and updates the created records
 function create(user) {
   return knex("users")
     .insert(user)

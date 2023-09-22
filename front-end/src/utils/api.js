@@ -51,40 +51,52 @@ async function fetchJson(url, options, onCancel) {
 }
 
 /**
- * Retrieves all existing habits.
+ * Retrieves all existing users.
  * @returns {Promise<[habit]>}
- *  a promise that resolves to a possibly empty array of habits saved in the database.
+ *  a promise that resolves to a possibly empty array of users saved in the database.
  */
-
- export async function listHabits(params, signal) {
-  const url = new URL(`${API_BASE_URL}/habits`);
+export async function listUsers(params,signal) {
+  const url = new URL(`${API_BASE_URL}/users`);
 
   Object.entries(params).forEach(([key, value]) =>
     url.searchParams.append(key, value.toString())
   );
 
   return await fetchJson(url, { headers, signal }, [])
-    // .then(formatReservationDate)
-    // .then(formatReservationTime);
 }
 
 /**
- * Saves habit to the database.
- * There is no validation done on the habit object, any object will be saved.
- * @param habit
- *  the reservation to save, which must not have an `id` property
+ * Retrieves all existing teams.
+ * @returns {Promise<[teams]>}
+ *  a promise that resolves to a possibly empty array of teams saved in the database.
+ */
+ export async function listTeams(params,signal) {
+  const url = new URL(`${API_BASE_URL}/teams`);
+
+  Object.entries(params).forEach(([key, value]) =>
+    url.searchParams.append(key, value.toString())
+  );
+
+  return await fetchJson(url, { headers, signal }, [])
+}
+
+/**
+ * Saves user to the database.
+ * There is no validation done on the user object, any object will be saved.
+ * @param user
+ *  the user to save, which must not have an `id` property
  * @param signal
  *  optional AbortController.signal
- * @returns {Promise<habit>}
- *  a promise that resolves the saved habit, which will now have an `id` property.
+ * @returns {Promise<user>}
+ *  a promise that resolves the saved user, which will now have an `id` property.
  */
- export async function createHabit(habit, signal) {
+ export async function createUser(user, signal) {
 
-  const url = `${API_BASE_URL}/habits/new`;
+  const url = `${API_BASE_URL}/users/new`;
   const options = {
     method: "POST",
     headers,
-    body: JSON.stringify({data: habit}),
+    body: JSON.stringify({data: user}),
     signal,
   };
 
