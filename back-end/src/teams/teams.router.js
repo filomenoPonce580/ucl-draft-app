@@ -14,5 +14,10 @@ router
   .get(controller.list)
   .all(methodNotAllowed);
 
+router
+  .route("/addscore")
+  .get(controller.read)
+  .put(controller.addResult)
+  .all(methodNotAllowed)
    
 module.exports = router;

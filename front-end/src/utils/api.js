@@ -81,6 +81,26 @@ export async function listUsers(params,signal) {
 }
 
 /**
+ * Updates an team data by adding new match result for 2 teams as well as updating the goals scored/conceded for both teams
+ * @param newResultData
+ *  the data to save, which must have an `teamId` property, goals scored/conceded properties, and result property.
+ * @param signal
+ *  optional AbortController.signal
+ * @returns {Promise<Error|*>}
+ *  a promise that resolves to the updated table.
+ */
+ export async function updateResults(newResultData, signal) {
+  const url = `${API_BASE_URL}/teams/addscore`;
+  const options = {
+    method: "PUT",
+    headers,
+    body: JSON.stringify({data: newResultData}),
+    signal,
+  };
+  return await fetchJson(url, options, {});
+}
+
+/**
  * Saves user to the database.
  * There is no validation done on the user object, any object will be saved.
  * @param user

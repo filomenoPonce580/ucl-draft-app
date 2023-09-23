@@ -19,22 +19,37 @@ function Dashboard( ) {
 
   useEffect(() => {
     const abortController = new AbortController();
-    setUsersError(null);
-    setTeamsError(null);
-
-  // Fetch users and teams data
-  Promise.all([listUsers(abortController.signal), listTeams(abortController.signal)])
-    .then(([usersData, teamsData]) => {
-      setUsers(usersData);
-      setTeams(teamsData);
-    })
-    .catch((error) => {
-      setUsersError(error);
-      setTeamsError(error);
-    });
-
-    return () => abortController.abort();
-  }, []);
+  
+    async function loadDashboard() {
+      try {
+        setUsersError(null);
+        setTeamsError(null);
+  
+        const [usersData, teamsData] = await Promise.all([
+          listUsers(abortController.signal),
+          listTeams(abortController.signal),
+        ]);
+  
+        // Check if the component is still mounted before setting the state
+        if (!abortController.signal.aborted) {
+          setUsers(usersData);
+          setTeams(teamsData);
+        }
+      } catch (error) {
+        if (!abortController.signal.aborted) {
+          // Only update errors if the operation was not aborted
+          setUsersError(error);
+          setTeamsError(error);
+        }
+      }
+    }
+  
+    loadDashboard();
+  
+    return () => {
+      abortController.abort();
+    };
+  }, [teams]);
 
   return (
     <main>

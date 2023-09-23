@@ -1,270 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { listUsers, listTeams, updateResults } from "../utils/api";
+import {useHistory} from "react-router-dom"
 
 function UpdateData(){
+    const history = useHistory()
     const initialFormData = {
-        team1: '',
-        team2: '',
-        team1Goals: '',
-        team2Goals: ''
+        homeTeam: '',
+        homeTeamGoals: '',
+        awayTeam: '',
+        awayTeamGoals: ''
     }
-    const teams = {
-        '0': {
-          teamName: 'Antwerp',
-          abbreviation: 'ANT',
-          country: 'BEL',
-          results: ['L'],
-          goalsFor: 0,
-          goalsAgainst: 5,
-        },
-        '1': {
-          teamName: 'Arsenal',
-          abbreviation: 'ARS',
-          country: 'ENG',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '2': {
-          teamName: 'Atletico de Madrid',
-          abbreviation: 'ATM',
-          country: 'ESP',
-          results: ['D'],
-          goalsFor: 1,
-          goalsAgainst: 1,
-        },
-        '3': {
-          teamName: 'Barcelona',
-          abbreviation: 'BAR',
-          country: 'ESP',
-          results: ['W'],
-          goalsFor: 5,
-          goalsAgainst: 0,
-        },
-        '4': {
-          teamName: 'Bayern Munich',
-          abbreviation: 'BAY',
-          country: 'GER',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '5': {
-          teamName: 'Benfica',
-          abbreviation: 'BEN',
-          country: 'POR',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '6': {
-          teamName: 'Braga',
-          abbreviation: 'BRA',
-          country: 'POR',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '7': {
-          teamName: 'Celtic',
-          abbreviation: 'CEL',
-          country: 'SCO',
-          results: ['L'],
-          goalsFor: 0,
-          goalsAgainst: 2,
-        },
-        '8': {
-          teamName: 'Copenhagen',
-          abbreviation: 'COP',
-          country: 'DEN',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '9': {
-          teamName: 'Crvena Zvezda',
-          abbreviation: 'CRZ',
-          country: 'SRB',
-          results: ['L'],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '10': {
-          teamName: 'Dortmund',
-          abbreviation: 'DOR',
-          country: 'GER',
-          results: ['L'],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '11': {
-          teamName: 'FC Porto',
-          abbreviation: 'POR',
-          country: 'POR',
-          results: ['W'],
-          goalsFor: 3,
-          goalsAgainst: 1,
-        },
-        '12': {
-          teamName: 'Feyenoord',
-          abbreviation: 'FEY',
-          country: 'NED',
-          results: ['W'],
-          goalsFor: 2,
-          goalsAgainst: 0,
-        },
-        '13': {
-          teamName: 'Galatasaray',
-          abbreviation: 'GAL',
-          country: 'TUR',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '14': {
-          teamName: 'Inter Milan',
-          abbreviation: 'INT',
-          country: 'ITA',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '15': {
-          teamName: 'Lazio',
-          abbreviation: 'LAZ',
-          country: 'ITA',
-          results: ['D'],
-          goalsFor: 1,
-          goalsAgainst: 1,
-        },
-        '16': {
-          teamName: 'Leipzig',
-          abbreviation: 'LEI',
-          country: 'GER',
-          results: ['W'],
-          goalsFor: 3,
-          goalsAgainst: 1,
-        },
-        '17': {
-          teamName: 'Lens',
-          abbreviation: 'LEN',
-          country: 'FRA',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '18': {
-          teamName: 'Manchester City',
-          abbreviation: 'MCI',
-          country: 'ENG',
-          results: ['W'],
-          goalsFor: 3,
-          goalsAgainst: 1,
-        },
-        '19': {
-          teamName: 'Manchester United',
-          abbreviation: 'MAN',
-          country: 'ENG',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '20': {
-          teamName: 'AC Milan',
-          abbreviation: 'MIL',
-          country: 'ITA',
-          results: ['D'],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '21': {
-          teamName: 'Napoli',
-          abbreviation: 'NAP',
-          country: 'ITA',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '22': {
-          teamName: 'Newcastle',
-          abbreviation: 'NEW',
-          country: 'ENG',
-          results: ['D'],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '23': {
-          teamName: 'Paris Saint Germain',
-          abbreviation: 'PSG',
-          country: 'FRA',
-          results: ['W'],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '24': {
-          teamName: 'PSV',
-          abbreviation: 'PSV',
-          country: 'NED',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '25': {
-          teamName: 'Real Madrid',
-          abbreviation: 'RMA',
-          country: 'ESP',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '26': {
-          teamName: 'Real Sociedad',
-          abbreviation: 'SOC',
-          country: 'ESP',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '27': {
-          teamName: 'Salzburg',
-          abbreviation: 'SAL',
-          country: 'AUT',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '28': {
-          teamName: 'Sevilla',
-          abbreviation: 'SEV',
-          country: 'ESP',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '29': {
-          teamName: 'Shakhtar Donetsk',
-          abbreviation: 'SHA',
-          country: 'UKR',
-          results: ['L'],
-          goalsFor: 1,
-          goalsAgainst: 3,
-        },
-        '30': {
-          teamName: 'Union Berlin',
-          abbreviation: 'UNI',
-          country: 'GER',
-          results: [],
-          goalsFor: 0,
-          goalsAgainst: 0,
-        },
-        '31': {
-          teamName: 'Young Boys',
-          abbreviation: 'YB',
-          country: 'SUI',
-          results: ['L'],
-          goalsFor: 1,
-          goalsAgainst: 3,
-        }
-      };
+
+    const [users, setUsers] = useState([]);
+    const [usersError, setUsersError] = useState(null);
+    const [teams, setTeams] = useState([]);
+    const [teamsError, setTeamsError] = useState(null);
+  
+    useEffect(() => {
+      const abortController = new AbortController();
+      setUsersError(null);
+      setTeamsError(null);
+  
+      // Fetch users and teams data
+      Promise.all([listUsers(abortController.signal), listTeams(abortController.signal)])
+        .then(([usersData, teamsData]) => {
+          setUsers(usersData);
+          setTeams(teamsData);
+        })
+        .catch((error) => {
+          setUsersError(error);
+          setTeamsError(error);
+        });
+  
+      return () => abortController.abort();
+    }, []);
+
     const [formData, setFormData] = useState(initialFormData);
 
     function handleInputChange(event) {
@@ -276,7 +46,49 @@ function UpdateData(){
     }
     function handleSubmit(event){
         event.preventDefault()
-        console.log(formData)
+
+        //parse input data into integer
+        const parsedData = {}
+        Object.keys(formData).forEach((key)=>{
+          parsedData[key] = parseInt(formData[key], 10)
+        })
+
+        //Derive results from goals scored in match
+        let results = {
+          home: 'D',
+          away: 'D'
+        }
+        if(parsedData.homeTeamGoals > parsedData.awayTeamGoals){
+          results.home = 'W';
+          results.away = 'L';
+        } else if (parsedData.homeTeamGoals < parsedData.awayTeamGoals){
+          results.home = 'L';
+          results.away = 'W';
+        }
+        
+        //format data into single object with home/away objects nested inside
+        const formattedData = {
+          home: {
+            teamId: parsedData.homeTeam,
+            goalsScored: parsedData.homeTeamGoals,
+            goalsConceded: parsedData.awayTeamGoals,
+            result: results.home,
+          },
+          away: {
+            teamId: parsedData.awayTeam,
+            goalsScored: parsedData.awayTeamGoals,
+            goalsConceded: parsedData.homeTeamGoals,
+            result: results.away
+          }
+        }
+
+        console.log(formattedData)
+        //next: update results by pushing result string into results array in DB
+        //also, add goals scored and goals conceded
+        const abortController = new AbortController();
+        updateResults(formattedData, abortController.signal)
+           .then(history.push(`/dashboard`))
+        return () => abortController.abort();
     }
     return (
         <div>
@@ -289,36 +101,39 @@ function UpdateData(){
                     <h5 className="card-title">Select Home Team</h5>
                         <div className="form-row">
                             <div className="form-group col-md-3">
-                                <label htmlFor="team1" className="form-label">
-                                    Home Team:{" "}
+                                <label htmlFor="homeTeam" className="form-label">
+                                    Home Team: {" "}
                                 </label>
                                 <select
                                     className="form-select"
-                                    id="team1"
-                                    name="team1"
-                                    value={formData.team1}
+                                    id="homeTeam"
+                                    name="homeTeam"
+                                    value={formData.homeTeam}
                                     onChange={handleInputChange}
                                     required
                                     >
-                                <option value="" disabled defaultValue>
+                                <option value="" defaultValue>
                                     Select...
                                 </option>
-                                {Object.keys(teams).map((teamId) => (
-                                    <option key={teamId} value={teamId}>
-                                        {teams[teamId].teamName}
+                                {teams
+                                  .slice() // Create a copy of the array to avoid mutating the original
+                                  .sort((a, b) => a.teamName.localeCompare(b.teamName)) // Sort alphabetically
+                                  .map((team) => (
+                                    <option key={team.teamId} value={team.teamId}>
+                                        {team.teamName}
                                     </option>
                                     ))}
                                 </select>
                             </div>
                             <div className="form-group col-md-3">
-                                <label htmlFor="team1Goals">Goals: </label>
+                                <label htmlFor="homeTeamGoals">Goals: </label>
                                 <input
                                     type="text"
                                     className="form-control"
-                                    name="team1Goals"
-                                    id="team1Goals"
+                                    name="homeTeamGoals"
+                                    id="homeTeamGoals"
 
-                                    value={formData ? formData.team1Goals : ''}
+                                    value={formData ? formData.homeTeamGoals : ''}
                                     onChange={handleInputChange}/>
                             </div>
                         </div>
@@ -326,36 +141,39 @@ function UpdateData(){
                         <h5 className="card-title">Select Away Team</h5>
                         <div className="form-row">
                             <div className="form-group col-md-3">
-                                <label htmlFor="team2" className="form-label">
+                                <label htmlFor="awayTeam" className="form-label">
                                     Away Team:{" "}
                                 </label>
                                 <select
                                     className="form-select"
-                                    id="team2"
-                                    name="team2"
-                                    value={formData.team2}
+                                    id="awayTeam"
+                                    name="awayTeam"
+                                    value={formData.awayTeam}
                                     onChange={handleInputChange}
                                     required
                                     >
-                                <option value="" disabled defaultValue>
+                                <option value="" defaultValue>
                                     Select...
                                 </option>
-                                {Object.keys(teams).map((teamId) => (
-                                    <option key={teamId} value={teamId}>
-                                        {teams[teamId].teamName}
+                                {teams
+                                  .slice() // Create a copy of the array to avoid mutating the original
+                                  .sort((a, b) => a.teamName.localeCompare(b.teamName)) // Sort alphabetically
+                                  .map((team) => (
+                                    <option key={team.teamId} value={team.teamId}>
+                                        {team.teamName}
                                     </option>
                                     ))}
                                 </select>
                             </div>
                             <div className="form-group col-md-3">
-                                <label htmlFor="team2Goals">Goals: </label>
+                                <label htmlFor="awayTeamGoals">Goals: </label>
                                 <input
                                     type="text"
                                     className="form-control"
-                                    name="team2Goals"
-                                    id="team2Goals"
+                                    name="awayTeamGoals"
+                                    id="awayTeamGoals"
 
-                                    value={formData ? formData.team2Goals : ''}
+                                    value={formData ? formData.awayTeamGoals : ''}
                                     onChange={handleInputChange}/>
                             </div> 
                         </div>
