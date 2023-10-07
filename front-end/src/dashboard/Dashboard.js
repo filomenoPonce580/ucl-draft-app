@@ -90,15 +90,11 @@ function Dashboard( ) {
           </tbody>
         </table>
       </div>
+      {/*ErrorAlert not needed yet, waiting to get main functionality working first */}
+      {/* <ErrorAlert error={habitsError} /> */}
 
     </main>
   );
 }
-
-    //   {/* JSON line not needed, ErrorAlert not needed yet, waiting to get main functionality working first */}
-    //   {/* <ErrorAlert error={habitsError} /> */}
-    // </main>
-//   );
-// }
 
 export default Dashboard;

@@ -13,19 +13,6 @@ import "./Layout.css";
  * @returns {JSX.Element}
  */
 function Layout() {
-  // const [habits, setHabits] = useState([]);
-  // const [habitsError, setHabitsError] = useState(null);
-
-  // useEffect(loadInformation, [habits]);
-  // function loadInformation() {
-  //   const abortController = new AbortController();
-  //   setHabitsError(null);
-  //   listHabits(abortController.signal)
-  //     .then(setHabits)
-  //     .catch()
-  //   return () => abortController.abort();
-  // }
-
   return (
     <div className="container-fluid">
       <div className="row h-100">
@@ -33,6 +20,9 @@ function Layout() {
           <Menu />
         </div>
         <div className="col">
+          <div>
+            <img className="banner" src="http://bilko.tv/images/Portfolio/UEFA-Champions-League-banner.jpg" alt="UEFA Champions League Banner"/>
+          </div>
           <Routes />
         </div>
       </div>

@@ -1,5 +1,5 @@
 .side-bar {
-  background-color: #393a44;
+  background-color: #03030a;
   min-width: 200px;
 }
 
@@ -28,7 +28,7 @@ th {
   letter-spacing: 2px;
   padding: 10px;
   text-align: center;
-  background-color: #393a44;
+  background-color: #1a1e43;
   color: white;
 }
 
@@ -63,4 +63,16 @@ tr:nth-child(even){
 
 .actionBtn{
   margin: 2px;
+}
+
+.banner{
+  width: 100%;
+}
+
+.col{
+  padding: 0;
+}
+
+main{
+  padding: 2%;
 }
