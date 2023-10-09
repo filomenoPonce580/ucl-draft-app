@@ -3,6 +3,19 @@
   min-width: 200px;
 }
 
+/* Main */
+main{
+  padding: 2%;
+}
+
+.banner{
+  width: 100%;
+}
+
+.col{
+  padding: 0;
+}
+
 /* table */
 
 table {
@@ -63,16 +76,4 @@ tr:nth-child(even){
 
 .actionBtn{
   margin: 2px;
-}
-
-.banner{
-  width: 100%;
-}
-
-.col{
-  padding: 0;
-}
-
-main{
-  padding: 2%;
 }
