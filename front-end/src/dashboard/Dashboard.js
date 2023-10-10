@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ErrorAlert from "../layout/ErrorAlert";
 import { listUsers, listTeams } from "../utils/api";
 import {Link} from "react-router-dom"
-import { listHabits } from "../utils/api";
 import User from "./User";
 
 /**
@@ -49,7 +48,40 @@ function Dashboard( ) {
     return () => {
       abortController.abort();
     };
-  }, [teams]);
+  }, []);
+
+  //Helper Function. Locates the users team from within the teams array
+  function findTeam(teamId){
+    return teams.find((team) => teamId === team.teamId)
+  }
+
+  //Calculates Team Points: turns the result value from array ('W/L/D') into an integer representing points gained. 
+  const calculateTeamPoints = (resultsArr) =>
+      resultsArr.reduce((total, result) => {
+          if (result === 'W') return total + 1;
+          if (result === 'D') return total + 0.5;
+      return total;
+  }, 0);
+
+  //Combines all the users' point totals and multiplies the value according to the round in which the team is drafted
+  function calculateAllPoints(teams, user){
+      let team1 = calculateTeamPoints(findTeam(user.team1).results);
+      let team2 = calculateTeamPoints(findTeam(user.team2).results) * 2;
+      let team3 = calculateTeamPoints(findTeam(user.team3).results) * 3;
+      let team4 = calculateTeamPoints(findTeam(user.team4).results) * 4;
+
+      return team1 + team2 + team3 + team4
+  }
+
+  //Calculates the combined goal difference for all the users' teams
+  function calculateGD(teams, user){
+      let one = findTeam(user.team1).goalsFor - findTeam(user.team1).goalsAgainst;
+      let two = findTeam(user.team2).goalsFor - findTeam(user.team2).goalsAgainst;
+      let three = findTeam(user.team3).goalsFor - findTeam(user.team3).goalsAgainst;
+      let four = findTeam(user.team4).goalsFor - findTeam(user.team4).goalsAgainst;
+
+      return one + two + three + four
+  }
 
   return (
     <main>
@@ -75,12 +107,21 @@ function Dashboard( ) {
           
           <tbody>{/* Renders '... loading' while data loads*/}
             {users.length > 0 && teams.length > 0 ? (
-              users.map((oneUser, indx) => (
-                <User
-                  key={oneUser.userId}
-                  user={oneUser}
-                  teams={teams}
-                />
+              //sorts users data by point totals in descending order then renders information using .map & User component
+              users.sort((user1, user2) => {
+                  const points1 = calculateAllPoints(teams, user1);
+                  const points2 = calculateAllPoints(teams, user2);
+                  return points2 - points1;
+                })
+                  .map((oneUser, indx) => (
+                    <User
+                      key={oneUser.userId}
+                      user={oneUser}
+                      teams={teams}
+                      gD={calculateGD(teams, oneUser)}
+                      points={calculateAllPoints(teams, oneUser)}
+                      findTeam={findTeam}
+                    />
               ))
             ) : (
               <tr>
