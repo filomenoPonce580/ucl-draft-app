@@ -5,8 +5,9 @@ import {useHistory} from "react-router-dom"
 function Admin(){
     return (
         <div>
-            <h1>Things to add:</h1>
-            <h2>Log in feature</h2>
+            <h1>Admin page in development...</h1>
+            <h2>Features to add:</h2>
+            <h3>Log in feature</h3>
             <span>if not logged in, display log in card. once logged in display the following options</span>
             
             <div>

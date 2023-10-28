@@ -21,7 +21,7 @@ function Layout() {
         </div>
         <div className="col">
           <div>
-            <img className="banner" src="http://bilko.tv/images/Portfolio/UEFA-Champions-League-banner.jpg" alt="UEFA Champions League Banner"/>
+            <img className="banner" src="https://creativereview.imgix.net/content/uploads/2018/06/banner-UCL18-21_PressKit_KeyVisual_Stadium.jpg?auto=compress,format&q=60&w=1920&h=604" alt="UEFA Champions League Banner"/>
           </div>
           <Routes />
         </div>
