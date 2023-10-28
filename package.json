@@ -5,7 +5,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/filomenoPonce580/ucl-draft-app"
+    "url": "https://github.com/filomenoPonce580/ucl-fantasy-league"
   },
   "scripts": {
     "build": "npm -prefix front-end run build",
