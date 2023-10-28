@@ -4,6 +4,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Dashboard from "../dashboard/Dashboard";
 import NotFound from "./NotFound";
 import UpdateData from "../updatePage/UpdateData";
+import Admin from "../adminPage/Admin";
 
 
 /**
@@ -26,6 +27,10 @@ function Routes() {
 
       <Route exact={true} path="/updatedata">
         <UpdateData />
+      </Route>
+
+      <Route exact={true} path="/admin">
+        <Admin />
       </Route>
 
       <Route>

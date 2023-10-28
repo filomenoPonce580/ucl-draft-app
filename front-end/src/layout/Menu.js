@@ -47,6 +47,12 @@ function Menu() {
                   &nbsp;Scoreboard
                 </Link>
               </li>
+              <li className="nav-item col">
+                <Link className="nav-link" to="/admin">
+                  <span className="oi oi-key" />
+                  &nbsp;Administrator
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="text-center d-none d-md-inline">
