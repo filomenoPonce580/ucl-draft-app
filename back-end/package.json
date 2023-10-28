@@ -1,11 +1,11 @@
 {
-  "name": "uefa--fantasy-league-back-end",
+  "name": "ucl-draft-back-end",
   "version": "1.0.0",
-  "description": "Code for uefa-fantasy-league backend",
+  "description": "Code for ucl-draft-app backend",
   "main": "src/server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/filomenoPonce580/uefa-fantasy-league",
+    "url": "https://github.com/filomenoPonce580/ucl-draft-app",
     "directory": "/back-end"
   },
   "scripts": {
