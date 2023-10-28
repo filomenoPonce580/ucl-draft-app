@@ -1,11 +1,11 @@
 {
-  "name": "habitmax-back-end",
+  "name": "uefa--fantasy-league-back-end",
   "version": "1.0.0",
-  "description": "Code for HabitMax backend",
+  "description": "Code for uefa-fantasy-league backend",
   "main": "src/server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cannonspears/habitmax",
+    "url": "https://github.com/filomenoPonce580/uefa-fantasy-league",
     "directory": "/back-end"
   },
   "scripts": {
