@@ -29,16 +29,16 @@ function Menu() {
                   &nbsp;Dashboard
                 </Link>
               </li>
-              <li className="nav-item col">
+              {/* <li className="nav-item col">
                 <Link className="nav-link" to="/search">
                   <span className="oi oi-magnifying-glass" />
                   &nbsp;Search
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item col">
                 <Link className="nav-link" to="/updatedata">
                   <span className="oi oi-plus" />
-                  &nbsp;Update Data
+                  &nbsp;Update Scores
                 </Link>
               </li>
               <li className="nav-item col">
@@ -47,12 +47,12 @@ function Menu() {
                   &nbsp;Scoreboard
                 </Link>
               </li>
-              <li className="nav-item col">
+              {/* <li className="nav-item col">
                 <Link className="nav-link" to="/admin">
                   <span className="oi oi-key" />
                   &nbsp;Administrator
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div className="text-center d-none d-md-inline">

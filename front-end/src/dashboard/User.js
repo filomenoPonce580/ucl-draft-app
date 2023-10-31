@@ -13,7 +13,7 @@ function User({user, teams, points, gD, findTeam}){
             <td>{findTeam(user.team4).teamName}</td>
             <td>{points}</td>
             <td>{gD}</td>
-            <td><button>View</button></td>
+            {/* <td><button>View</button></td> */}
         </tr>
    )
     

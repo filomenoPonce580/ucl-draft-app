@@ -101,7 +101,7 @@ function Dashboard( ) {
               <th>Team 4</th>
               <th>Points</th>
               <th>GD</th>
-              <th className="actionButtonCol">Action</th>
+              {/* <th className="actionButtonCol">Action</th> */}
             </tr>
           </thead>
           
