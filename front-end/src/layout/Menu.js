@@ -37,7 +37,7 @@ function Menu() {
               </li> */}
               <li className="nav-item col">
                 <Link className="nav-link" to="/updatedata">
-                  <span className="oi oi-plus" />
+                  <span className="oi oi-data-transfer-upload" />
                   &nbsp;Update Scores
                 </Link>
               </li>
