@@ -5,6 +5,7 @@ import Dashboard from "../dashboard/Dashboard";
 import NotFound from "./NotFound";
 import UpdateData from "../updatePage/UpdateData";
 import Admin from "../adminPage/Admin";
+import Scoreboard from "../scoreboardPage/Scoreboard";
 
 
 /**
@@ -21,7 +22,7 @@ function Routes() {
         <Redirect to={"/dashboard"} />
       </Route>
 
-      <Route path="/dashboard">
+      <Route exact={true} path="/dashboard">
         <Dashboard />
       </Route>
 
@@ -31,6 +32,10 @@ function Routes() {
 
       <Route exact={true} path="/admin">
         <Admin />
+      </Route>
+
+      <Route exact={true} path="/scoreboard">
+        <Scoreboard />
       </Route>
 
       <Route>

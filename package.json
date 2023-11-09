@@ -25,5 +25,8 @@
     "email": "filomenoponce580@gmail.com",
     "url": "https://github.com/filomenoPonce580"
   },
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "axios": "^1.6.1"
+  }
 }
