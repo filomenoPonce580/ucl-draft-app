@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchUCLData } from "../utils/api";
+import Group from "./Group";
 
 function Scoreboard() {
   const [data, setData] = useState(null);
@@ -36,16 +37,15 @@ function Scoreboard() {
   }
 
   // Render UCL data here
-  return (
-    <div>
-      {data.standings.map((group, index) => (
-        <div key={index}>
-          <h2>{group.name}</h2>
-          <pre>{JSON.stringify(group.rows, null, 2)}</pre>
-        </div>
-      ))}
-    </div>
-  );
+  if(data){
+    return (
+      <div>
+        {data.standings.map((group, index) => (
+          <Group group={group} key={index}/>
+        ))}
+      </div>
+    );    
+  }
 }
 
 export default Scoreboard;
