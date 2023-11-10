@@ -122,3 +122,29 @@ export async function listUsers(params,signal) {
 
   return await fetchJson(url, options, {});
 }
+
+/**
+ * Retrieves current UCL data from rapidapi's footapi7.
+ * @returns {Promise<[ucldata]>}
+ */
+ export async function fetchUCLData(signal) {
+  const url = new URL(`${API_BASE_URL}/fetchUCLData`);
+
+  try {
+    const response = await fetch(url, { signal });
+
+    if (response.status === 204) {
+      return null;
+    }
+
+    const data = await response.json();
+
+    if (data.error) {
+      throw new Error(data.error);
+    }
+    return data;
+  } catch (error) {
+    console.error("Error fetching UCL data:", error);
+    throw error;
+  }
+}

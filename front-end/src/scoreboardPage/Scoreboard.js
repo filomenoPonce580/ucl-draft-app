@@ -2,48 +2,50 @@ import React, { useState, useEffect } from "react";
 import { fetchUCLData } from "../utils/api";
 
 function Scoreboard() {
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-  
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await fetch('http://api.football-data.org/v4/competitions', {
-            method: 'GET',
-            headers: {
-              'X-Auth-Token': '425961e8665a48a99e6d118ff052dfd2', // Replace with your API key
-            },
-          });
-          if (response.ok) {
-            const json = await response.json();
-            setData(json);
-          } else {
-            console.error('API request failed');
-          }
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const uclData = await fetchUCLData();
+        setData(uclData);
+      } catch (error) {
+        setError("Error loading UCL data");
+      } finally {
         setLoading(false);
-      };
-  
-      fetchData();
-    }, []);
-  
-    if (loading) {
-      return <div>Loading...</div>;
-    }
-  
-    if (!data) {
-      return <div>Error loading data</div>;
-    }
-  
-    // Render your data here
-    return (
-      <div>
-        {/* Render your data here */}
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-      </div>
-    );
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  console.log("UCL Data in component:", data);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (!data || (Array.isArray(data) && data.length === 0)) {
+    return <div>No UCL data available</div>;
+  }
+
+  // Render UCL data here
+  return (
+    <div>
+      {data.standings.map((group, index) => (
+        <div key={index}>
+          <h2>{group.name}</h2>
+          <pre>{JSON.stringify(group.rows, null, 2)}</pre>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default Scoreboard;
