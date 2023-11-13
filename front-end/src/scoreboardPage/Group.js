@@ -1,18 +1,21 @@
 import React from "react"
 
-function Group(){
+function Group({ group }) {
     return (
-        <div className="card" style="width: 18rem;">
-            <div className="card-header">
-                Featured
-            </div>
-            <ul className="list-group list-group-flush">
-                <li className="list-group-item">Cras justo odio</li>
-                <li className="list-group-item">Dapibus ac facilisis in</li>
-                <li className="list-group-item">Vestibulum at eros</li>
-            </ul>
-        </div>
-    )
-}
+      <div className="card">
+        <div className="card-header">{`${group.name}`}</div>
+        <ul className="list-group list-group-flush">
+          {group.rows.map((row, index) => (
+            <li className="list-group-item" key={index}>
+              <div className="team-info">
+                <span className="team-name">{row.team.name}</span>
+                <span className="points">{row.points}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
 
 export default Group
