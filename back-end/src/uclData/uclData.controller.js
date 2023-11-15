@@ -1,9 +1,9 @@
 // thirdPartyController.js
 const service = require("./uclData.services");
 
-async function getUclData(req, res, next) {
+async function fetchUCLData(req, res, next) {
   try {
-    const data = await service.fetchUclData();
+    const data = await service.fetchUCLData();
     res.json(data);
   } catch (error) {
     next(error);
@@ -11,5 +11,5 @@ async function getUclData(req, res, next) {
 }
 
 module.exports = {
-  getUclData,
+  fetchUCLData,
 };

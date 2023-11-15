@@ -1,7 +1,6 @@
-// thirdPartyService.js
 const axios = require("axios");
 
-async function fetchUclData() {
+async function fetchUCLData() {
   try {
     const headers = {
         "X-RapidAPI-Key": "9b789937dcmshfda6ddfdd2bb09bp1fc5f2jsnf884ec57a6d3",
@@ -15,5 +14,5 @@ async function fetchUclData() {
 }
 
 module.exports = {
-  fetchUclData,
+  fetchUCLData,
 };
