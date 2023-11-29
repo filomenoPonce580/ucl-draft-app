@@ -27,8 +27,8 @@ function UpdateCard({formData, teams, handleInputChange, handleSubmit}){
                                     Select...
                                 </option>
                                 {teams
-                                  .slice() // Create a copy of the array to avoid mutating the original
-                                  .sort((a, b) => a.teamName.localeCompare(b.teamName)) // Sort alphabetically
+                                  .slice()
+                                  .sort((a, b) => a.teamName.localeCompare(b.teamName)) // Sorts alphabetically
                                   .map((team) => (
                                     <option key={team.teamId} value={team.teamId}>
                                         {team.teamName}
@@ -67,8 +67,8 @@ function UpdateCard({formData, teams, handleInputChange, handleSubmit}){
                                     Select...
                                 </option>
                                 {teams
-                                  .slice() // Create a copy of the array to avoid mutating the original
-                                  .sort((a, b) => a.teamName.localeCompare(b.teamName)) // Sort alphabetically
+                                  .slice()
+                                  .sort((a, b) => a.teamName.localeCompare(b.teamName)) // Sorts alphabetically
                                   .map((team) => (
                                     <option key={team.teamId} value={team.teamId}>
                                         {team.teamName}

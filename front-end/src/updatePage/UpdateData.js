@@ -13,17 +13,11 @@ function UpdateData(){
         awayTeamGoals: ''
     }
 
-    // const initialAdminData = {
-    //   admin_name: '',
-    //   password: ''
-    // }
-
     const [users, setUsers] = useState([]);
     const [usersError, setUsersError] = useState(null);
     const [teams, setTeams] = useState([]);
     const [teamsError, setTeamsError] = useState(null);
-    const [loggedIn, setLoggedIn] = useState(false);
-    // const [loginCreds, setLoginCreds] = useState(initialAdminData)
+    const [loggedIn, setLoggedIn] = useState(true);
     const [formData, setFormData] = useState(initialFormData);  
 
     useEffect(() => {
@@ -92,8 +86,6 @@ function UpdateData(){
         }
 
         console.log(formattedData)
-        //next: update results by pushing result string into results array in DB
-        //also, add goals scored and goals conceded
         const abortController = new AbortController();
         updateResults(formattedData, abortController.signal)
            .then(history.push(`/dashboard`))

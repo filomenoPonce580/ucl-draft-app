@@ -5,7 +5,7 @@ function AdminLogin({ toggleLogin }) {
         admin_name: '',
         password: ''
       }
-    const [loggedIn, setLoggedIn] = useState(false);
+    //const [loggedIn, setLoggedIn] = useState(false);
     const [loginCreds, setLoginCreds] = useState(initialAdminData)
 
     function handleAdminInputChange(event) {
@@ -14,15 +14,7 @@ function AdminLogin({ toggleLogin }) {
           ...loginCreds,
           [event.target.name]: event.target.value,
         });
-      }
-  //   function handleAdminInputChange(event) {
-  //     event.preventDefault();
-  //     const { name, value } = event.target;
-  //     setLoginCreds({
-  //         ...loginCreds,
-  //         [name]: value,
-  //     });
-  // }
+    }
   
     function handleLoginSubmit(event){
         const adminName = 'fipo580'
