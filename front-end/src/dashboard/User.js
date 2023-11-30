@@ -7,10 +7,10 @@ function User({user, teams, points, gD, findTeam}){
     return (
         <tr>
             <td>{user.name}</td>
-            <td>{findTeam(user.team1).teamName}</td>
-            <td>{findTeam(user.team2).teamName}</td>
-            <td>{findTeam(user.team3).teamName}</td>
-            <td>{findTeam(user.team4).teamName}</td>
+            <td className="team-column">{findTeam(user.team1).teamName}</td>
+            <td className="team-column">{findTeam(user.team2).teamName}</td>
+            <td className="team-column">{findTeam(user.team3).teamName}</td>
+            <td className="team-column">{findTeam(user.team4).teamName}</td>
             <td>{points}</td>
             <td>{gD}</td>
             {/* <td><button>View</button></td> */}

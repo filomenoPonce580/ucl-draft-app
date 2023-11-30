@@ -1,6 +1,19 @@
 .side-bar {
-  background-color: #03030a;
+  background-color: #17173b;
   min-width: 200px;
+}
+
+.footer {
+  background-color: #17173b;
+  color: rgb(178, 179, 190);
+  height: 130px;
+}
+
+.rights-reserved {
+  display: flex;
+  justify-content: center; /* Horizontally center content */
+  align-items: center; /* Vertically center content */
+  height: 100%; /* Ensure the span takes the full height of its container */
 }
 
 /* Main */
@@ -16,6 +29,10 @@ main{
   padding: 0;
 }
 
+.title {
+  text-align: center;
+}
+
 /* table */
 
 table {
@@ -24,18 +41,8 @@ table {
   border-collapse: collapse;
   overflow:hidden;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  justify-content: center;
 }
-
-/* Column Size for thead */
-/* th{
-  width: 16.6%;
-
-} */
-
-/* Column size for tbody */
-/* td{
-  width: 16.6%;
-} */
 
 th {
   letter-spacing: 2px;
@@ -78,6 +85,12 @@ tr:nth-child(even){
   margin: 2px;
 }
 
+@media (max-width: 500px) {
+  .team-column {
+    display: none;
+  }
+}
+
 
 
 /*  --- Scoreboard & Groups components ---  */
@@ -85,13 +98,13 @@ tr:nth-child(even){
 .scoreboard-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* or justify-content: space-around; depending on your preference */
+  justify-content: space-around; /* or  space-between */
   padding: 5px;
 }
 
 .card {
-  width: 48%; /* Adjust the width as needed, accounting for margins, borders, etc. */
-  margin-bottom: 10px; /* Add some margin between the columns */
+  width: 48%;
+  margin-bottom: 10px;
 }
 
 .card {

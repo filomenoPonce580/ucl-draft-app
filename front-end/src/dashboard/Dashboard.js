@@ -85,9 +85,8 @@ function Dashboard( ) {
 
   return (
     <main>
-      <h1 className="title">Dashboard</h1>
       <div className=" mb-3 title">
-        <h4 className="mb-0">Overview</h4>        
+        <h1 className="mb-0">Overview</h1>        
       </div>
       <ErrorAlert error={usersError || teamsError} />
       <div className="table-responsive table-responsive-sm table-responsive-md">
@@ -95,10 +94,10 @@ function Dashboard( ) {
           <thead className="tableHead">
             <tr>
               <th>Name</th>
-              <th>Team 1</th>
-              <th>Team 2</th>
-              <th>Team 3</th>
-              <th>Team 4</th>
+              <th className="team-column">Team 1</th>
+              <th className="team-column">Team 2</th>
+              <th className="team-column">Team 3</th>
+              <th className="team-column">Team 4</th>
               <th>Points</th>
               <th>GD</th>
               {/* <th className="actionButtonCol">Action</th> */}
