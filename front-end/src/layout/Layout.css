@@ -11,9 +11,9 @@
 
 .rights-reserved {
   display: flex;
-  justify-content: center; /* Horizontally center content */
-  align-items: center; /* Vertically center content */
-  height: 100%; /* Ensure the span takes the full height of its container */
+  justify-content: center; 
+  align-items: center; 
+  height: 100%;
 }
 
 /* Main */
@@ -116,8 +116,3 @@ tr:nth-child(even){
   display: flex;
   justify-content: space-between;
 }
-
-/* .card{
-  width: 18rem;
-  margin: 1rem;
-} */

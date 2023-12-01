@@ -100,7 +100,6 @@ function Dashboard( ) {
               <th className="team-column">Team 4</th>
               <th>Points</th>
               <th>GD</th>
-              {/* <th className="actionButtonCol">Action</th> */}
             </tr>
           </thead>
           
@@ -131,7 +130,7 @@ function Dashboard( ) {
         </table>
       </div>
       {/*ErrorAlert not needed yet, waiting to get main functionality working first */}
-      {/* <ErrorAlert error={habitsError} /> */}
+      {/* <ErrorAlert error={usersError} /> */}
 
     </main>
   );
