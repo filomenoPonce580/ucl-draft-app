@@ -33,6 +33,12 @@ main{
   text-align: center;
 }
 
+body{
+  font-family: 'Heebo';
+  background-color: rgb(197, 197, 211);
+}
+
+
 /* table */
 
 table {
@@ -70,8 +76,13 @@ td {
 }
 
 tr:nth-child(even){
-  background-color: rgba(239, 237, 235, 0.937);
+  background-color: rgba(235, 236, 239, 0.937);
 }
+
+tr:nth-child(odd){
+  background-color: rgba(255, 255, 255, 0.937);
+}
+
 
 .cancel{
   color: white;
