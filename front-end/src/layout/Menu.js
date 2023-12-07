@@ -16,7 +16,7 @@ function Menu() {
             className="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
             to="/"
           >
-            <div className="sidebar-brand-text mx-3">
+            <div className="sidebar-brand-text mx-3 mt-2">
               <span>UCL Draft Room</span>
             </div>
           </Link>
@@ -47,12 +47,6 @@ function Menu() {
                   &nbsp;Scoreboard
                 </Link>
               </li>
-              {/* <li className="nav-item col">
-                <Link className="nav-link" to="/admin">
-                  <span className="oi oi-key" />
-                  &nbsp;Administrator
-                </Link>
-              </li> */}
             </ul>
           </div>
           <div className="text-center d-none d-md-inline">

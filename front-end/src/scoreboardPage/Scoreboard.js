@@ -39,7 +39,8 @@ function Scoreboard() {
   // Render UCL data here
   if(data){
     return (
-      <div className="scoreboard-container">
+      <div className="centered-container">
+        <h1 className="title">Group Standings</h1>
         {data.standings.map((group, index) => (
           <Group group={group} key={index}/>
         ))}

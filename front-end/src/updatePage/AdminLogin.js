@@ -4,8 +4,8 @@ function AdminLogin({ toggleLogin }) {
     const initialAdminData = {
         admin_name: '',
         password: ''
-      }
-    //const [loggedIn, setLoggedIn] = useState(false);
+    }
+
     const [loginCreds, setLoginCreds] = useState(initialAdminData)
 
     function handleAdminInputChange(event) {

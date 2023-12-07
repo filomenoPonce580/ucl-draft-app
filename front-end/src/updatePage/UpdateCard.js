@@ -3,7 +3,6 @@ import React from "react";
 function UpdateCard({formData, teams, handleInputChange, handleSubmit}){
     return (
         <div>
-            <h1>Update Scores</h1>
             <div className="card">
                 <h5 className="card-header">Add Score</h5>
                 <div className="card-body">

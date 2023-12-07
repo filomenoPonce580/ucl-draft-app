@@ -31,6 +31,9 @@ main{
 
 .title {
   text-align: center;
+  padding: 5px;
+  margin-top: 10px;
+  width: 100%;
 }
 
 body{
@@ -38,8 +41,17 @@ body{
   background-color: rgb(197, 197, 211);
 }
 
+.centered{
+  justify-content: center;
+}
 
-/* table */
+/*Menu*/
+hr{
+  color: rgb(255, 255, 255);
+  height: 10px;
+}
+
+/* table in dashboard */
 
 table {
   /* table-layout: fixed; */
@@ -106,19 +118,20 @@ tr:nth-child(odd){
 
 /*  --- Scoreboard & Groups components ---  */
 
-.scoreboard-container {
+.centered-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around; /* or  space-between */
   padding: 5px;
 }
 
-.card {
-  width: 48%;
-  margin-bottom: 10px;
+.group{
+  margin: 8px 0;
 }
 
 .card {
+  width: 48%;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -127,3 +140,29 @@ tr:nth-child(odd){
   display: flex;
   justify-content: space-between;
 }
+
+
+@media (max-width: 768px) {
+  .card {
+    width: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 400px;
+  }
+}
+
+@media (max-width: 500px) {
+  .card {
+    width: 300px;
+  }
+}
+
+/* --------- Update Scores --------- */
+
+.card{
+  background-color: rgb(244, 244, 247);
+}
+

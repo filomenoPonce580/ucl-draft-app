@@ -2,7 +2,7 @@ import React from "react"
 
 function Group({ group }) {
     return (
-      <div className="card">
+      <div className="card group">
         <div className="card-header">{`${group.name}`}</div>
         <ul className="list-group list-group-flush">
           {group.rows.map((row, index) => (

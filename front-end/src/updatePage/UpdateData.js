@@ -17,7 +17,7 @@ function UpdateData(){
     const [usersError, setUsersError] = useState(null);
     const [teams, setTeams] = useState([]);
     const [teamsError, setTeamsError] = useState(null);
-    const [loggedIn, setLoggedIn] = useState(true);
+    const [loggedIn, setLoggedIn] = useState(false);
     const [formData, setFormData] = useState(initialFormData);  
 
     useEffect(() => {
@@ -104,7 +104,12 @@ function UpdateData(){
 
     return (
       <div>
-        { !loggedIn ? <AdminLogin toggleLogin={toggleLogin} /> : <UpdateCard formData={formData} teams={teams} handleInputChange={handleInputChange} handleSubmit={handleSubmit}/>}
+        <div className=" mb-3 title">
+          <h1 className="mb-0">Update Scores</h1>        
+        </div>
+        <div className="title centered-container">
+          { !loggedIn ? <AdminLogin toggleLogin={toggleLogin} /> : <UpdateCard formData={formData} teams={teams} handleInputChange={handleInputChange} handleSubmit={handleSubmit}/>}
+        </div>
       </div>
     )
     
