@@ -1,6 +1,6 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
+import { Icon } from '@iconify/react';
 
 /**
  * Defines the menu for this application.
@@ -25,26 +25,28 @@ function Menu() {
             <ul className="nav navbar-nav text-light" id="accordionSidebar">
               <li className="nav-item col">
                 <Link className="nav-link" to="/dashboard">
-                  <span className="oi oi-dashboard" />
+                  {/* <span className="oi oi-spreadsheet" /> */}
+                  <Icon icon="bxs:spreadsheet" width="26" height="26" />
                   &nbsp;Dashboard
                 </Link>
               </li>
-              {/* <li className="nav-item col">
-                <Link className="nav-link" to="/search">
-                  <span className="oi oi-magnifying-glass" />
-                  &nbsp;Search
+              <li className="nav-item col">
+                <Link className="nav-link" to="/create">
+                  <Icon icon="fluent:form-new-24-filled" width="26" height="26" />
+                  &nbsp;Create League
                 </Link>
-              </li> */}
+              </li>
               <li className="nav-item col">
                 <Link className="nav-link" to="/updatedata">
-                  <span className="oi oi-data-transfer-upload" />
-                  &nbsp;Update Scores
+                  {/* <span className="oi oi-data-transfer-upload" /> */}
+                  <Icon icon="solar:cloud-upload-broken" width="26" height="26" />                  &nbsp;Update Scores
                 </Link>
               </li>
               <li className="nav-item col">
                 <Link className="nav-link" to="/scoreboard">
-                  <span className="oi oi-layers" />
-                  &nbsp;Scoreboard
+                  {/* <span className="oi oi-layers" /> */}
+                  <Icon icon="mdi:soccer-field" width="26" height="26" />
+                  &nbsp;Live Standings
                 </Link>
               </li>
             </ul>
