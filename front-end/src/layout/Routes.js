@@ -6,6 +6,7 @@ import NotFound from "./NotFound";
 import UpdateData from "../updatePage/UpdateData";
 import Admin from "../adminPage/Admin";
 import Scoreboard from "../scoreboardPage/Scoreboard";
+import CreateLeague from "../create/CreateLeague";
 
 
 /**
@@ -36,6 +37,10 @@ function Routes() {
 
       <Route exact={true} path="/scoreboard">
         <Scoreboard />
+      </Route>
+
+      <Route exact={true} path="/create">
+        <CreateLeague />
       </Route>
 
       <Route>

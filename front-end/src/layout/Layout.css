@@ -166,3 +166,13 @@ tr:nth-child(odd){
   background-color: rgb(244, 244, 247);
 }
 
+
+/*------------ CreateLeague -----------*/
+.createFormLabels {
+  width: 80px;
+}
+
+.createFormInputs {
+  width: calc(100% - 100px);
+}
+

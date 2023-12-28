@@ -87,34 +87,34 @@ function Dashboard( ) {
     <main>
 
 
-  <div className="centered-container">
-    <div className="card text-center">
-      <div className="card-header">
-        <span>Welcome, please enter your league name</span>
+      <div className="centered-container">
+        <div className="card text-center">
+          <div className="card-header">
+            <span>Welcome, please enter your league name</span>
+          </div>
+          <div className="card-body">
+            <form>
+                <div className="form-group">
+                    <label htmlFor="admin_name">League Name</label>
+                    <input 
+                        type="text"
+                        className="form-control"
+                        id="leadue_name"
+                        name="league_name"
+                        aria-describedby="emailHelp"
+                        placeholder="Enter League Name"
+                        // value={loginCreds.admin_name}
+                        // onChange={}
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary" >Search</button>
+            </form>
+          </div>
+          <div class="card-footer text-muted">
+            <span>Don't have a league? Create a league <a href="#">here</a></span>
+          </div>
+        </div>
       </div>
-      <div className="card-body">
-        <form>
-            <div className="form-group">
-                <label htmlFor="admin_name">League Name</label>
-                <input 
-                    type="text"
-                    className="form-control"
-                    id="leadue_name"
-                    name="league_name"
-                    aria-describedby="emailHelp"
-                    placeholder="Enter League Name"
-                    // value={loginCreds.admin_name}
-                    // onChange={}
-                />
-            </div>
-            <button type="submit" className="btn btn-primary" >Search</button>
-        </form>
-      </div>
-      <div class="card-footer text-muted">
-        <span>Don't have a league? Create a league <a href="#">here</a></span>
-      </div>
-    </div>
-  </div>
 
 
 
