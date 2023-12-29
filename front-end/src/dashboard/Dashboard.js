@@ -111,7 +111,7 @@ function Dashboard( ) {
             </form>
           </div>
           <div class="card-footer text-muted">
-            <span>Don't have a league? Create a league <a href="#">here</a></span>
+            <span>Don't have a league? Create a league <Link to="/create">here</Link></span>
           </div>
         </div>
       </div>
