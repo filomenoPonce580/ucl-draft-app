@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function SetDraftOrder({ players }) {
     const [shuffledPlayers, setShuffledPlayers] = useState([...players]);
+    const [toggleShuffle, setToggleShuffle] = useState(false)
 
     // Function to randomize the order of players
     const randomizeOrder = () => {
@@ -13,29 +14,29 @@ function SetDraftOrder({ players }) {
         }
 
         setShuffledPlayers(shuffledArray);
+        setToggleShuffle(true)
     };
 
     return (
-        <div>
-            <h1>Set Order of Draft</h1>
-            <div>
-                <h2>Original Order:</h2>
-                <ul>
-                    {players.map((player, index) => (
-                        <li key={index}>{player}</li>
-                    ))}
+        <div className="centered-container">
+            <div className="card" style={{ width: "18rem" }}>
+                <div className="card-header d-flex justify-content-center">
+                    Set Order of Draft
+                </div>
+                <ul className="list-group list-group-flush">
+                    {!toggleShuffle ? 
+                        players.map((player, index) => (
+                            <li className="list-group-item" key={index}>{index + 1}. {player}</li>
+                        )) :
+                        shuffledPlayers.map((player, index) => (
+                                <li className="list-group-item" key={index}>{index + 1}. {player}</li>
+                        ))}
                 </ul>
-            </div>
-            <div>
-                <h2>Shuffled Order:</h2>
-                <ul>
-                    {shuffledPlayers.map((player, index) => (
-                        <li key={index}>{player}</li>
-                    ))}
-                </ul>
-                <button onClick={randomizeOrder}>Randomize Order</button>
-            </div>
+                <button className="btn btn-primary" onClick={randomizeOrder}>Randomize Order</button>
+                <button className="btn btn-secondary" onClick={randomizeOrder}>Begin Draft</button>
+            </div>            
         </div>
+
     );
 }
 
