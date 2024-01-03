@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { listTeams } from "../utils/api";
 import CreateLeagueForm from "./CreateLeagueForm";
+import Draft from "./Draft";
+import SetDraftOrder from "./SetDraftOrder";
+import RandomizeUsers from "./SetDraftOrder";
 
 function CreateLeague(){
     const [teams, setTeams] = useState([]);
     const [teamsError, setTeamsError] = useState(null);
     const initialLeague = {
-        leagueName: "",
+        league_name: "",
         players: [],
+        nameAndUsersDefined: false,
+        draftOrderSet: false
     }
     const [league, setLeague] = useState(initialLeague)
   
@@ -43,6 +48,7 @@ function CreateLeague(){
     // Function to handle form submission from CreateLeagueForm
     function handleFormSubmit(formData) {
         // Do something with the submitted data (formData)
+        formData.nameAndUsersDefined = true;
         console.log("Form data submitted:", formData);
         // For example, update the league state
         setLeague(formData);
@@ -51,13 +57,17 @@ function CreateLeague(){
 
     return (
         <div>
-        <CreateLeagueForm league={league} teams={teams} onSubmit={handleFormSubmit}/>
+            {!league.nameAndUsersDefined ? 
+                <CreateLeagueForm league={league} teams={teams} onSubmit={handleFormSubmit}/> :
+                    !league.draftOrderSet ? 
+                        <SetDraftOrder players={league.players}/> : <Draft/>}
+            
 
-        {console.log(teams)}
+            {console.log(teams)}
 
-        {teams.map((team, i)=>{
-            return <h1 key={i}>{team.teamName}</h1>
-        })}
+            {teams.map((team, i)=>{
+                return <h1 key={i}>{team.teamName}</h1>
+            })}
 
 
         </div>

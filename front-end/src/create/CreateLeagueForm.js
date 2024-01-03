@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 function CreateLeagueForm({teams, onSubmit}){
     const [leagueName, setLeagueName] = useState('');
-    const [playerNames, setPlayerNames] = useState(Array(8).fill(''));
+    const [players, setPlayers] = useState(Array(8).fill(''));
 
     // function handleInputChange(event) {
     //     event.preventDefault();
@@ -15,16 +15,16 @@ function CreateLeagueForm({teams, onSubmit}){
     }
 
     function handlePlayerNameChange(event, index) {
-        const updatedPlayerNames = [...playerNames];
+        const updatedPlayerNames = [...players];
         updatedPlayerNames[index] = event.target.value;
-        setPlayerNames(updatedPlayerNames);
+        setPlayers(updatedPlayerNames);
     }
 
 
     function handleSubmit(event) {
         event.preventDefault();
         // Pass data to parent component
-        onSubmit({ leagueName, playerNames });
+        onSubmit({ leagueName, players });
     }
 
     return(
@@ -61,7 +61,7 @@ function CreateLeagueForm({teams, onSubmit}){
                                     id={`player${index + 1}`}
                                     name={`player${index + 1}`}
                                     placeholder={`Enter Player ${index + 1} Name`}
-                                    value={playerNames[index]}
+                                    value={players[index]}
                                     onChange={(e) => handlePlayerNameChange(e, index)}
                                 />
                                 </div>
