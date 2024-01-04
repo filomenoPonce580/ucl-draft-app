@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import Draft from "./Draft";
+import DraftOrder from "./DraftOrder";
 
-function SetDraftOrder({ players }) {
+function SetDraftOrder({ players, league, setLeague, teams }) {
     const [shuffledPlayers, setShuffledPlayers] = useState([...players]);
     const [toggleShuffle, setToggleShuffle] = useState(false)
 
     // Function to randomize the order of players
-    const randomizeOrder = () => {
+    function randomizeOrder(){
         const shuffledArray = [...shuffledPlayers];
 
         for (let i = shuffledArray.length - 1; i > 0; i--) {
@@ -17,26 +19,16 @@ function SetDraftOrder({ players }) {
         setToggleShuffle(true)
     };
 
-    return (
-        <div className="centered-container">
-            <div className="card" style={{ width: "18rem" }}>
-                <div className="card-header d-flex justify-content-center">
-                    Set Order of Draft
-                </div>
-                <ul className="list-group list-group-flush">
-                    {!toggleShuffle ? 
-                        players.map((player, index) => (
-                            <li className="list-group-item" key={index}>{index + 1}. {player}</li>
-                        )) :
-                        shuffledPlayers.map((player, index) => (
-                                <li className="list-group-item" key={index}>{index + 1}. {player}</li>
-                        ))}
-                </ul>
-                <button className="btn btn-primary" onClick={randomizeOrder}>Randomize Order</button>
-                <button className="btn btn-secondary" onClick={randomizeOrder}>Begin Draft</button>
-            </div>            
-        </div>
+    function beginDraft(){
+        setLeague({...league, draftReady: true})
+        console.log(league)
+    }
 
+
+    return (
+        <div>
+            {!league.draftReady ? <DraftOrder toggleShuffle={toggleShuffle} players={players} shuffledPlayers={shuffledPlayers} randomizeOrder={randomizeOrder} beginDraft={beginDraft}/>: <Draft teams={teams}/>}            
+        </div>
     );
 }
 

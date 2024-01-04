@@ -3,7 +3,6 @@ import { listTeams } from "../utils/api";
 import CreateLeagueForm from "./CreateLeagueForm";
 import Draft from "./Draft";
 import SetDraftOrder from "./SetDraftOrder";
-import RandomizeUsers from "./SetDraftOrder";
 
 function CreateLeague(){
     const [teams, setTeams] = useState([]);
@@ -12,7 +11,9 @@ function CreateLeague(){
         league_name: "",
         players: [],
         nameAndUsersDefined: false,
-        draftOrderSet: false
+        draftOrderSet: false,
+        draftReady: false,
+        draftComplete: false
     }
     const [league, setLeague] = useState(initialLeague)
   
@@ -49,9 +50,13 @@ function CreateLeague(){
     function handleFormSubmit(formData) {
         // Do something with the submitted data (formData)
         formData.nameAndUsersDefined = true;
+        formData.draftOrderSet = false;
+        formData.draftReady = false;
+        formData.draftComplete = false;
         console.log("Form data submitted:", formData);
         // For example, update the league state
         setLeague(formData);
+        console.log(league)
     }
 
 
@@ -60,7 +65,7 @@ function CreateLeague(){
             {!league.nameAndUsersDefined ? 
                 <CreateLeagueForm league={league} teams={teams} onSubmit={handleFormSubmit}/> :
                     !league.draftOrderSet ? 
-                        <SetDraftOrder players={league.players}/> : <Draft/>}
+                        <SetDraftOrder players={league.players} league={league} setLeague={setLeague} teams={teams}/> : <span>error</span>}
             
 
             {console.log(teams)}

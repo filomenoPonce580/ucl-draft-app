@@ -176,3 +176,14 @@ tr:nth-child(odd){
   width: calc(100% - 100px);
 }
 
+/*------------ DraftRoom ---------------*/
+
+.draft-room-teams{
+  width: 200px;
+  margin: 20px;
+  padding: 0px;
+}
+
+.team-cards-whole{
+  margin: 10px;
+}
