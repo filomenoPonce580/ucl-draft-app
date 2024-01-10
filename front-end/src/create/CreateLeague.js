@@ -26,6 +26,10 @@ function CreateLeague(){
           setTeamsError(null);
     
           const teamsData = await listTeams(abortController.signal);
+          teamsData.map((team, i)=>{
+              return team.drafted = false;
+          })
+
     
           // Check if the component is still mounted before setting the state
           if (!abortController.signal.aborted) {
@@ -53,10 +57,10 @@ function CreateLeague(){
         formData.draftOrderSet = false;
         formData.draftReady = false;
         formData.draftComplete = false;
-        console.log("Form data submitted:", formData);
+        //console.log("Form data submitted:", formData);
         // For example, update the league state
         setLeague(formData);
-        console.log(league)
+        //console.log(league)
     }
 
 
@@ -68,7 +72,7 @@ function CreateLeague(){
                         <SetDraftOrder players={league.players} league={league} setLeague={setLeague} teams={teams}/> : <span>error</span>}
             
 
-            {console.log(teams)}
+            {/* {console.log(teams)} */}
 
             {teams.map((team, i)=>{
                 return <h1 key={i}>{team.teamName}</h1>

@@ -21,13 +21,13 @@ function SetDraftOrder({ players, league, setLeague, teams }) {
 
     function beginDraft(){
         setLeague({...league, draftReady: true})
-        console.log(league)
+        //console.log(league)
     }
 
 
     return (
         <div>
-            {!league.draftReady ? <DraftOrder toggleShuffle={toggleShuffle} players={players} shuffledPlayers={shuffledPlayers} randomizeOrder={randomizeOrder} beginDraft={beginDraft}/>: <Draft teams={teams}/>}            
+            {!league.draftReady ? <DraftOrder toggleShuffle={toggleShuffle} players={players} shuffledPlayers={shuffledPlayers} randomizeOrder={randomizeOrder} beginDraft={beginDraft}/>: <Draft teams={teams} shuffledPlayers={shuffledPlayers}/>}            
         </div>
     );
 }

@@ -187,3 +187,11 @@ tr:nth-child(odd){
 .team-cards-whole{
   margin: 10px;
 }
+
+/* .teamToggleButtons{
+  margin: 3px
+} */
+
+.draftTeamButtonContainer{
+  width: 100%;
+}
