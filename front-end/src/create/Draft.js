@@ -2,7 +2,19 @@ import React, { useState, useEffect } from "react";
 
 function Draft({ teams, shuffledPlayers }) {
   // Remove empty names
-  let users = shuffledPlayers.filter((player) => player.length > 1);
+  let initialUsers = shuffledPlayers.filter((player) => player.length > 1);
+
+  // Add id and team properties to each user
+  const [users, setUsers] = useState(
+    initialUsers.map((user, index) => ({
+      id: index + 1, // Assuming id starts from 1
+      name: user, // Original user name
+      team1: undefined,
+      team2: undefined,
+      team3: undefined,
+      team4: undefined,
+    }))
+  );
 
   const [roundVisibility, setRoundVisibility] = useState({
     1: true,
@@ -20,43 +32,46 @@ function Draft({ teams, shuffledPlayers }) {
     // Add more rounds as needed
   });
 
-  // Function to toggle round visibility
-  const toggleRoundVisibility = (roundNumber) => {
-    const updatedVisibility = { ...roundVisibility };
-    updatedVisibility[roundNumber] = !updatedVisibility[roundNumber];
-    setRoundVisibility(updatedVisibility);
-  };
-
-  // Function to handle confirmation of a player's selection
-  const handleConfirmation = (roundNumber, index) => {
+  // Function to toggle round visibility and handle confirmation
+  const toggleRoundVisibility = (roundNumber, pickIndex) => {
     const updatedConfirmation = { ...confirmation };
-    updatedConfirmation[roundNumber][index] = true;
+    updatedConfirmation[roundNumber][pickIndex] = true;
     setConfirmation(updatedConfirmation);
-  };
 
-  // Check if all players have confirmed for a specific round
-  const allConfirmed = (roundNumber) => {
-    return confirmation[roundNumber].every((confirmed) => confirmed);
-  };
+    // Check if all picks in the round are confirmed
+    const allPicksConfirmed = updatedConfirmation[roundNumber].every(
+      (confirmed) => confirmed
+    );
 
-  // Collapse round if all players confirmed for that round
-  useEffect(() => {
-    for (let i = 1; i <= Object.keys(roundVisibility).length; i++) {
-      if (allConfirmed(i)) {
-        toggleRoundVisibility(i);
-        // Automatically open the next round if it exists
-        if (i < Object.keys(roundVisibility).length) {
-          toggleRoundVisibility(i + 1);
-        }
-      }
+    // Toggle visibility based on confirmation status
+    if (allPicksConfirmed) {
+      setRoundVisibility((prevVisibility) => ({
+        ...prevVisibility,
+        [roundNumber]: false,
+        [roundNumber + 1]: true,
+      }));
     }
-  }, [confirmation]);
+  };
+
+  // Function to handle team selection for a user
+  const handleTeamSelection = (roundNumber, pickIndex, team) => {
+    setUsers((prevUsers) => {
+      const userId = roundNumber * prevUsers.length + pickIndex + 1;
+      const userIndex = userId - 1;
+
+      return prevUsers.map((user, index) =>
+        index === userIndex
+          ? { ...user, [`team${roundNumber}`]: team }
+          : user
+      );
+    });
+  };
 
   // Function to generate rows for a specific round
   function renderRoundRows(roundNumber) {
     const numberOfPicks = users.length;
     const rows = [];
-    let currentUsers = users.slice(); // Create a copy of the users array
+    let currentUsers = users.map((user) => ({ ...user })); // Create a copy of the users array
 
     // Reverse the order if roundNumber is even
     if (roundNumber % 2 === 0) {
@@ -69,12 +84,32 @@ function Draft({ teams, shuffledPlayers }) {
       rows.push(
         <tr key={`round${roundNumber}-pick${pick}`}>
           <td>{currentPick}</td>
-          <td>{currentUsers[pick - 1]}</td>
-          {/* Here you can add selection */}
-          <td>Selection</td>
+          <td>{currentUsers[pick - 1].name}</td>
+          <td>
+            {/* Drop-down menu or form input for team selection */}
+            <select
+              value={currentUsers[pick - 1][`team${roundNumber}`]}
+              onChange={(e) =>
+                handleTeamSelection(
+                  roundNumber,
+                  pick - 1,
+                  e.target.value
+                )
+              }
+            >
+              <option value="">Select Team</option>
+              {teams
+                .filter((team) => !currentUsers.some((user) => user[`team${roundNumber}`] === team.teamId))
+                .map((team) => (
+                  <option key={team.teamId} value={team.teamId}>
+                    {team.teamName}
+                  </option>
+                ))}
+            </select>
+          </td>
           <td>
             {/* Button for confirmation */}
-            <button onClick={() => handleConfirmation(roundNumber, pick - 1)}>
+            <button onClick={() => toggleRoundVisibility(roundNumber, pick - 1)}>
               Confirm
             </button>
           </td>
@@ -95,7 +130,7 @@ function Draft({ teams, shuffledPlayers }) {
         <tr>
           <th>Pick</th>
           <th>User</th>
-          <th>Selection</th>
+          <th>Team Selection</th>
           <th>Confirm</th>
           <th>Confirmation Status</th>
         </tr>
