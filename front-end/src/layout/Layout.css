@@ -195,3 +195,7 @@ tr:nth-child(odd){
 .draftTeamButtonContainer{
   width: 100%;
 }
+
+.wideCard{
+  width: 100%;
+}

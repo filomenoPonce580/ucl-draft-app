@@ -67,18 +67,12 @@ function CreateLeague(){
     return (
         <div>
             {!league.nameAndUsersDefined ? 
-                <CreateLeagueForm league={league} teams={teams} onSubmit={handleFormSubmit}/> :
+                <CreateLeagueForm league={league} onSubmit={handleFormSubmit}/> :
                     !league.draftOrderSet ? 
-                        <SetDraftOrder players={league.players} league={league} setLeague={setLeague} teams={teams}/> : <span>error</span>}
+                        <SetDraftOrder players={league.players} league={league} setLeague={setLeague} teams={teams} setTeams={setTeams}/> : <span>error</span>}
             
 
             {/* {console.log(teams)} */}
-
-            {teams.map((team, i)=>{
-                return <h1 key={i}>{team.teamName}</h1>
-            })}
-
-
         </div>
     )
 }

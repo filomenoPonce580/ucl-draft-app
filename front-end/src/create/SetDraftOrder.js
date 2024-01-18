@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import Draft from "./Draft";
 import DraftOrder from "./DraftOrder";
 
-function SetDraftOrder({ players, league, setLeague, teams }) {
-    const [shuffledPlayers, setShuffledPlayers] = useState([...players]);
+function SetDraftOrder({ players, league, setLeague, teams, setTeams }) {
+    // Remove empty names
+    let filteredPlayers = players.filter((player) => player.length > 1);
+
+    // console.log("shuffled players: ", shuffledPlayers)
+    const [shuffledPlayers, setShuffledPlayers] = useState([...filteredPlayers]);
     const [toggleShuffle, setToggleShuffle] = useState(false)
 
     // Function to randomize the order of players
@@ -27,7 +31,7 @@ function SetDraftOrder({ players, league, setLeague, teams }) {
 
     return (
         <div>
-            {!league.draftReady ? <DraftOrder toggleShuffle={toggleShuffle} players={players} shuffledPlayers={shuffledPlayers} randomizeOrder={randomizeOrder} beginDraft={beginDraft}/>: <Draft teams={teams} shuffledPlayers={shuffledPlayers}/>}            
+            {!league.draftReady ? <DraftOrder toggleShuffle={toggleShuffle} players={filteredPlayers} shuffledPlayers={shuffledPlayers} randomizeOrder={randomizeOrder} beginDraft={beginDraft}/>: <Draft teams={teams} setTeams={setTeams} shuffledPlayers={shuffledPlayers}/>}            
         </div>
     );
 }

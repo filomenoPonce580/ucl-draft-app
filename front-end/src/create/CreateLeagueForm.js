@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function CreateLeagueForm({teams, onSubmit}){
+function CreateLeagueForm( {onSubmit}){
     const [leagueName, setLeagueName] = useState('');
     const [players, setPlayers] = useState(Array(8).fill(''));
 
