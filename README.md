@@ -4,6 +4,9 @@ An application for anyone who want to combine the excitement of Fantasy Football
 
 The rules of the game are simple. Each season will have anwhere between 2-8 participants, each participant will choose 4 teams, and those teams will gain the participant points if they win or draw during the group stage of the UEFA Champions League. At the end of the season there will be potentially two winners, the first being the player who's teams generate the most points. The second being the player with the team who ultimately wins the Champions League 
 
+Visit the site here:  
+https://uefa-fantasy-league-pkcp.onrender.com/  
+
 ## Selecting Your Teams
 
 The team selection for each participant is similar to that of a fantasy football draft. The players will randomize the order in which they will choose their teams, and after the first round of choices the positions are inverted so it snakes back to the first player from round 1 at the end of round 2
