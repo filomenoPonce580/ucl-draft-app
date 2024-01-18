@@ -70,9 +70,6 @@ function CreateLeague(){
                 <CreateLeagueForm league={league} onSubmit={handleFormSubmit}/> :
                     !league.draftOrderSet ? 
                         <SetDraftOrder players={league.players} league={league} setLeague={setLeague} teams={teams} setTeams={setTeams}/> : <span>error</span>}
-            
-
-            {/* {console.log(teams)} */}
         </div>
     )
 }

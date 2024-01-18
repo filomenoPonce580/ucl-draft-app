@@ -14,6 +14,12 @@ function Draft({ teams, setTeams, shuffledPlayers }) {
     }))
   );
 
+  function completeDraft(){
+    console.log(teams)
+    console.log(users)
+    window.alert("Feature not quite ready yet, Check back in soon! Thank you for your patience.");
+  }
+
   return (
   
     <div id="accordion">
@@ -24,6 +30,11 @@ function Draft({ teams, setTeams, shuffledPlayers }) {
           <DraftRound round={2} users={users} setUsers={setUsers} teams={teams} setTeams={setTeams}/>
           <DraftRound round={3} users={users} setUsers={setUsers} teams={teams} setTeams={setTeams}/>
           <DraftRound round={4} users={users} setUsers={setUsers} teams={teams} setTeams={setTeams}/>
+          <div className="centered-container">
+            <div className="card text-center">
+              <button onClick={completeDraft}>Draft Complete</button>
+            </div>
+          </div>
     </div>
   );
 }

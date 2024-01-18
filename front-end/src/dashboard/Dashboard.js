@@ -83,6 +83,10 @@ function Dashboard( ) {
       return one + two + three + four
   }
 
+  function notReady(){
+    window.alert("Feature not quite ready yet, Check back in soon! Thank you for your patience.");
+  }
+
   return (
     <main>
 
@@ -107,7 +111,7 @@ function Dashboard( ) {
                         // onChange={}
                     />
                 </div>
-                <button type="submit" className="btn btn-primary" >Search</button>
+                <button type="submit" className="btn btn-primary" onClick={notReady} >Search</button>
             </form>
           </div>
           <div class="card-footer text-muted">

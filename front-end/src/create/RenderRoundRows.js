@@ -3,11 +3,12 @@ import React, { useState } from "react";
 function RenderRoundRows({ round, users, setUsers, teams, setTeams }) {
   const numberOfPicks = users.length;
   const rows = [];
-  let currentUsers = users.map((user) => ({ ...user })); // Create a copy of the users array
 
+  let currentUsers = users.map((user) => ({ ...user })); // Create a copy of the users array
+  
   // Reverse the order if round is even
   if (round % 2 === 0) {
-    currentUsers.reverse();
+    currentUsers = currentUsers.reverse();
   }
 
   // State to track the selected teams for each pick
@@ -15,12 +16,8 @@ function RenderRoundRows({ round, users, setUsers, teams, setTeams }) {
 
   // Function to handle team selection for a user
   function handleTeamSelection(event, pick) {
-    // event.preventDefault();
-    setUsers((currentUsers) => {
-      const updatedUsers = [...currentUsers];
-      updatedUsers[pick - 1][`team${round}`] = event.target.value;
-      return updatedUsers;
-    });
+    event.preventDefault();
+    currentUsers[pick - 1][`team${round}`] = event.target.value;
   }
 
   function handleConfirmTeam(pick) {
@@ -43,6 +40,19 @@ function RenderRoundRows({ round, users, setUsers, teams, setTeams }) {
       updatedSelectedTeams[pick - 1] = teams.find((team) => team.teamId === selectedTeamId);
       return updatedSelectedTeams;
     });
+
+    const updatedUser = currentUsers[pick-1]
+    let updatedUsers = currentUsers.map((user) => {
+        if(user.id === updatedUser.id){
+            return {...updatedUser}
+        }
+        return user        
+    }) 
+    //flip back to original order of users
+    if(round % 2 === 0){
+        updatedUsers = updatedUsers.reverse()
+    }
+    setUsers(updatedUsers)
   }
 
   for (let pick = 1; pick <= numberOfPicks; pick++) {
