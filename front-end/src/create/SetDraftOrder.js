@@ -4,7 +4,7 @@ import DraftOrder from "./DraftOrder";
 
 function SetDraftOrder({ players, league, setLeague, teams, setTeams }) {
     // Remove empty names
-    let filteredPlayers = players.filter((player) => player.length > 1);
+    let filteredPlayers = players.filter((player) => player.length > 0);
 
     // console.log("shuffled players: ", shuffledPlayers)
     const [shuffledPlayers, setShuffledPlayers] = useState([...filteredPlayers]);

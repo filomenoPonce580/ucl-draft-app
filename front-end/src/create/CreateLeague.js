@@ -60,7 +60,7 @@ function CreateLeague(){
         //console.log("Form data submitted:", formData);
         // For example, update the league state
         setLeague(formData);
-        //console.log(league)
+        console.log(league)
     }
 
 
