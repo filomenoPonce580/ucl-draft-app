@@ -2,6 +2,7 @@
     {
       "name": "Los Chicos",
       "leagueId": 1,
+      "seasonId": 1,
       "users": [
             {
             "name": "LG",

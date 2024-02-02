@@ -87,8 +87,55 @@ function Dashboard( ) {
     window.alert("Feature not quite ready yet, Check back in soon! Thank you for your patience.");
   }
 
+  function renderTable(){
+    return (
+      <div className="table-responsive table-responsive-sm table-responsive-md">
+      <table className="table-sm">
+        <thead className="tableHead">
+          <tr>
+            <th>Name</th>
+            <th className="team-column">Team 1</th>
+            <th className="team-column">Team 2</th>
+            <th className="team-column">Team 3</th>
+            <th className="team-column">Team 4</th>
+            <th>Points</th>
+            <th>GD</th>
+          </tr>
+        </thead>
+        
+        <tbody>{/* Renders '... loading' while data loads*/}
+          {users.length > 0 && teams.length > 0 ? (
+            //sorts users data by point totals in descending order then renders information using .map & User component
+            users.sort((user1, user2) => {
+                const points1 = calculateAllPoints(teams, user1);
+                const points2 = calculateAllPoints(teams, user2);
+                return points2 - points1;
+              })
+                .map((oneUser, indx) => (
+                  <User
+                    key={oneUser.userId}
+                    user={oneUser}
+                    teams={teams}
+                    gD={calculateGD(teams, oneUser)}
+                    points={calculateAllPoints(teams, oneUser)}
+                    findTeam={findTeam}
+                  />
+            ))
+          ) : (
+            <tr>
+              <td colSpan="8">Loading...</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+    )
+  }
+
   return (
     <main>
+      {console.log('hello', teams)}
+      {console.log(users)}
 
 
       <div className="centered-container">
@@ -127,46 +174,6 @@ function Dashboard( ) {
         <h1 className="mb-0">Overview</h1>        
       </div>
       <ErrorAlert error={usersError || teamsError} />
-      <div className="table-responsive table-responsive-sm table-responsive-md">
-        <table className="table-sm">
-          <thead className="tableHead">
-            <tr>
-              <th>Name</th>
-              <th className="team-column">Team 1</th>
-              <th className="team-column">Team 2</th>
-              <th className="team-column">Team 3</th>
-              <th className="team-column">Team 4</th>
-              <th>Points</th>
-              <th>GD</th>
-            </tr>
-          </thead>
-          
-          <tbody>{/* Renders '... loading' while data loads*/}
-            {users.length > 0 && teams.length > 0 ? (
-              //sorts users data by point totals in descending order then renders information using .map & User component
-              users.sort((user1, user2) => {
-                  const points1 = calculateAllPoints(teams, user1);
-                  const points2 = calculateAllPoints(teams, user2);
-                  return points2 - points1;
-                })
-                  .map((oneUser, indx) => (
-                    <User
-                      key={oneUser.userId}
-                      user={oneUser}
-                      teams={teams}
-                      gD={calculateGD(teams, oneUser)}
-                      points={calculateAllPoints(teams, oneUser)}
-                      findTeam={findTeam}
-                    />
-              ))
-            ) : (
-              <tr>
-                <td colSpan="8">Loading...</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
       {/*ErrorAlert not needed yet, waiting to get main functionality working first */}
       {/* <ErrorAlert error={usersError} /> */}
 

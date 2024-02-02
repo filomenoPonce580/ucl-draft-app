@@ -1,0 +1,258 @@
+[
+    {
+        "id": 0,
+        "seasonId": 1,
+        "teamId": 0,
+        "matchResults": ["L", "L", "L", "L"],
+        "goalsFor": 3,
+        "goalsAgainst": 14
+    },
+    {
+        "id": 1,
+        "seasonId": 1,
+        "teamId": 1,
+        "matchResults": ["W", "L", "W", "W"],
+        "goalsFor": 9,
+        "goalsAgainst": 0
+    },
+    {
+        "id": 2,
+        "seasonId": 1,
+        "teamId": 2,
+        "matchResults": ["D", "W", "D", "W"],
+        "goalsFor": 12,
+        "goalsAgainst": 5
+    },
+    {
+        "id": 3,
+        "seasonId": 1,
+        "teamId": 3,
+        "matchResults": ["W", "W", "W", "L"],
+        "goalsFor": 8,
+        "goalsAgainst": 2
+    },
+    {
+        "id": 4,
+        "seasonId": 1,
+        "teamId": 4,
+        "matchResults": ["W","W","W","W"],
+        "goalsFor": 11,
+        "goalsAgainst": 6
+    },
+    {
+        "id": 5,
+        "seasonId": 1,
+        "teamId": 5,
+        "matchResults": ["L","L","L","L"],
+        "goalsFor": 1,
+        "goalsAgainst": 7
+    },
+    {
+        "id": 6,
+        "seasonId": 1,
+        "teamId": 6,
+        "matchResults": ["L","W","L","L"],
+        "goalsFor": 5,
+        "goalsAgainst": 9
+    },
+    {
+        "id": 7,
+        "seasonId": 1,
+        "teamId": 7,
+        "matchResults": ["L","L","D","L"],
+        "goalsFor": 3,
+        "goalsAgainst": 12
+    },
+    {
+        "id": 8,
+        "seasonId": 1,
+        "teamId": 8,
+        "matchResults": ["D","L","L","W"],
+        "goalsFor": 7,
+        "goalsAgainst": 8
+    },
+    {
+        "id": 9,
+        "seasonId": 1,
+        "teamId": 9,
+        "matchResults": ["L","D","L","L"],
+        "goalsFor": 4,
+        "goalsAgainst": 7
+    },
+    {
+        "id": 10,
+        "seasonId": 1,
+        "teamId": 10,
+        "matchResults": ["L","D","W","W"],
+        "goalsFor": 3,
+        "goalsAgainst": 2
+    },
+    {
+        "id": 11,
+        "seasonId": 1,
+        "teamId": 11,
+        "matchResults": ["W","L","W","W"],
+        "goalsFor": 9,
+        "goalsAgainst": 3
+    },
+    {
+        "id": 12,
+        "seasonId": 1,
+        "teamId": 12,
+        "matchResults": ["W","L","W","L"],
+        "goalsFor": 7,
+        "goalsAgainst": 5
+    },
+    {
+        "id": 13,
+        "seasonId": 1,
+        "teamId": 13,
+        "matchResults": ["D","W","L","L"],
+        "goalsFor": 7,
+        "goalsAgainst": 9
+    },
+    {
+        "id": 14,
+        "seasonId": 1,
+        "teamId": 14,
+        "matchResults": ["D","W","W","W"],
+        "goalsFor": 5,
+        "goalsAgainst": 2
+    },
+    {
+        "id": 15,
+        "seasonId": 1,
+        "teamId": 15,
+        "matchResults": ["D","W","L","W"],
+        "goalsFor": 5,
+        "goalsAgainst": 5
+    },
+    {
+        "id": 16,
+        "seasonId": 1,
+        "teamId": 16,
+        "matchResults": ["W","L","W","W"],
+        "goalsFor": 9,
+        "goalsAgainst": 6
+    },
+    {
+        "id": 17,
+        "seasonId": 1,
+        "teamId": 17,
+        "matchResults": ["D","W","D","L"],
+        "goalsFor": 4,
+        "goalsAgainst": 4
+    },
+    {
+        "id": 18,
+        "seasonId": 1,
+        "teamId": 18,
+        "matchResults": ["W","W","W","W"],
+        "goalsFor": 12,
+        "goalsAgainst": 3
+    },
+    {
+        "id": 19,
+        "seasonId": 1,
+        "teamId": 19,
+        "matchResults": ["L","L","W","L"],
+        "goalsFor": 9,
+        "goalsAgainst": 11
+    },
+    {
+        "id": 20,
+        "seasonId": 1,
+        "teamId": 20,
+        "matchResults": ["D","D","L","W"],
+        "goalsFor": 2,
+        "goalsAgainst": 4
+    },
+    {
+        "id": 21,
+        "seasonId": 1,
+        "teamId": 21,
+        "matchResults": ["W","L","W","D"],
+        "goalsFor": 6,
+        "goalsAgainst": 5
+    },
+    {
+        "id": 22,
+        "seasonId": 1,
+        "teamId": 22,
+        "matchResults": ["D","W","L","L"],
+        "goalsFor": 4,
+        "goalsAgainst": 4
+    },
+    {
+        "id": 23,
+        "seasonId": 1,
+        "teamId": 23,
+        "matchResults": ["W","L","W","L"],
+        "goalsFor": 5,
+        "goalsAgainst": 6
+    },
+    {
+        "id": 24,
+        "seasonId": 1,
+        "teamId": 24,
+        "matchResults": ["L","D","D","W"],
+        "goalsFor": 4,
+        "goalsAgainst": 7
+    },
+    {
+        "id": 25,
+        "seasonId": 1,
+        "teamId": 25,
+        "matchResults": ["W","W","W","W"],
+        "goalsFor": 9,
+        "goalsAgainst": 3
+    },
+    {
+        "id": 26,
+        "seasonId": 1,
+        "teamId": 26,
+        "matchResults": ["D","W","W","W"],
+        "goalsFor": 7,
+        "goalsAgainst": 2
+    },
+    {
+        "id": 27,
+        "seasonId": 1,
+        "teamId": 27,
+        "matchResults": ["W","L","L","L"],
+        "goalsFor": 3,
+        "goalsAgainst": 5
+    },
+    {
+        "id": 28,
+        "seasonId": 1,
+        "teamId": 28,
+        "matchResults": ["D","D","L","L"],
+        "goalsFor": 4,
+        "goalsAgainst": 7
+    },
+    {
+        "id": 29,
+        "seasonId": 1,
+        "teamId": 29,
+        "matchResults": ["L","W","L","W"],
+        "goalsFor": 6,
+        "goalsAgainst": 7
+    },
+    {
+        "id": 30,
+        "seasonId": 1,
+        "teamId": 30,
+        "matchResults": ["L","L","L","D"],
+        "goalsFor": 3,
+        "goalsAgainst": 6
+    },
+    {
+        "id": 31,
+        "seasonId": 1,
+        "teamId": 31,
+        "matchResults": ["L","D","L","L"],
+        "goalsFor": 4,
+        "goalsAgainst": 11
+    }
+]
