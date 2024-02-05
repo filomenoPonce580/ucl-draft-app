@@ -134,8 +134,8 @@ function Dashboard( ) {
 
   return (
     <main>
-      {console.log('hello', teams)}
-      {console.log(users)}
+      {console.log('teams: ', teams)}
+      {console.log('users: ', users)}
 
 
       <div className="centered-container">
