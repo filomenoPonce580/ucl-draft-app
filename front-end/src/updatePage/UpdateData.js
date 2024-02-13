@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { listUsers, listTeams, updateResults } from "../utils/api";
+import { listUsers, listTeams, updateResults, listResults, listSeasons } from "../utils/api";
 import {useHistory} from "react-router-dom"
 import UpdateCard from "./UpdateCard";
 import AdminLogin from "./AdminLogin";
@@ -17,8 +17,12 @@ function UpdateData(){
     const [usersError, setUsersError] = useState(null);
     const [teams, setTeams] = useState([]);
     const [teamsError, setTeamsError] = useState(null);
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(true); //set to false when not debugging
     const [formData, setFormData] = useState(initialFormData);  
+    const [results, setResults] = useState([])
+    const [resultsError, setResultsError] = useState(null)
+    const [seasons, setSeasons] = useState([])
+    const [seasonsError, setSeasonsError] = useState(null)
 
     useEffect(() => {
       const abortController = new AbortController();
@@ -26,14 +30,18 @@ function UpdateData(){
       setTeamsError(null);
   
       // Fetch users and teams data
-      Promise.all([listUsers(abortController.signal), listTeams(abortController.signal)])
-        .then(([usersData, teamsData]) => {
+      Promise.all([listUsers(abortController.signal), listTeams(abortController.signal), listResults(abortController.signal), listSeasons(abortController.signal)])
+        .then(([usersData, teamsData, results, seasons]) => {
           setUsers(usersData);
           setTeams(teamsData);
+          setResults(results);
+          setSeasons(seasons);
         })
         .catch((error) => {
           setUsersError(error);
           setTeamsError(error);
+          setResultsError(error);
+          setSeasonsError(error);
         });
   
       return () => abortController.abort();
@@ -87,8 +95,8 @@ function UpdateData(){
 
         console.log(formattedData)
         const abortController = new AbortController();
-        updateResults(formattedData, abortController.signal)
-           .then(history.push(`/dashboard`))
+        // updateResults(formattedData, abortController.signal)
+        //    .then(history.push(`/dashboard`))
         return () => abortController.abort();
     }
 
@@ -108,7 +116,7 @@ function UpdateData(){
           <h1 className="mb-0">Update Scores</h1>        
         </div>
         <div className="title centered-container">
-          { !loggedIn ? <AdminLogin toggleLogin={toggleLogin} /> : <UpdateCard formData={formData} teams={teams} handleInputChange={handleInputChange} handleSubmit={handleSubmit}/>}
+          { !loggedIn ? <AdminLogin toggleLogin={toggleLogin} /> : <UpdateCard formData={formData} teams={teams} seasons={seasons} handleInputChange={handleInputChange} handleSubmit={handleSubmit}/>}
         </div>
       </div>
     )

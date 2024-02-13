@@ -12,13 +12,17 @@ app.use(express.json());
 
 const usersRouter = require("./users/users.router");
 const teamsRouter = require("./teams/teams.router");
-const uclDataRouter = require("./uclData/uclData.router");
 const leaguesRouter = require("./leagues/leagues.router");
+const resultsRouter = require("./results/results.router");
+const seasonsRouter = require("./seasons/seasons.router");
+const uclDataRouter = require("./uclData/uclData.router");
 
 app.use("/users", usersRouter);
-app.use("/teams", teamsRouter)
-app.use("/fetchUCLData", uclDataRouter);
+app.use("/teams", teamsRouter);
 app.use("/leagues", leaguesRouter);
+app.use("/results", resultsRouter);
+app.use("/seasons", seasonsRouter);
+app.use("/fetchUCLData", uclDataRouter);
 
 app.use(notFound);
 app.use(errorHandler);

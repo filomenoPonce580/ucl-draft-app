@@ -52,7 +52,7 @@ async function fetchJson(url, options, onCancel) {
 
 /**
  * Retrieves all existing users.
- * @returns {Promise<[habit]>}
+ * @returns {Promise<[users]>}
  *  a promise that resolves to a possibly empty array of users saved in the database.
  */
 export async function listUsers(params,signal) {
@@ -90,7 +90,7 @@ export async function listUsers(params,signal) {
  *  a promise that resolves to the updated table.
  */
  export async function updateResults(newResultData, signal) {
-  const url = `${API_BASE_URL}/teams/addscore`;
+  const url = `${API_BASE_URL}/results/addscore`;
   const options = {
     method: "PUT",
     headers,
@@ -98,6 +98,36 @@ export async function listUsers(params,signal) {
     signal,
   };
   return await fetchJson(url, options, {});
+}
+
+/**
+ * Retrieves all existing users.
+ * @returns {Promise<[result]>}
+ *  a promise that resolves to a possibly empty array of users saved in the database.
+ */
+ export async function listResults(params,signal) {
+  const url = new URL(`${API_BASE_URL}/results`);
+
+  Object.entries(params).forEach(([key, value]) =>
+    url.searchParams.append(key, value.toString())
+  );
+
+  return await fetchJson(url, { headers, signal }, [])
+}
+
+/**
+ * Retrieves all existing seasons.
+ * @returns {Promise<[seasons]>}
+ *  a promise that resolves to a possibly empty array of teams saved in the database.
+ */
+ export async function listSeasons(params,signal) {
+  const url = new URL(`${API_BASE_URL}/seasons`);
+
+  Object.entries(params).forEach(([key, value]) =>
+    url.searchParams.append(key, value.toString())
+  );
+
+  return await fetchJson(url, { headers, signal }, [])
 }
 
 /**

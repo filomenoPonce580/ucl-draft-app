@@ -160,12 +160,53 @@ tr:nth-child(odd){
   }
 }
 
-/* --------- Update Scores --------- */
+/* --------- Update Page --------- */
 
 .card{
   background-color: rgb(244, 244, 247);
 }
 
+.updateCard{
+  width: 100%
+}
+
+.updateFormGroup{
+  padding: 30px
+}
+
+.goalsInput{
+  width: 70px
+}
+
+.updateFormLabel{
+  width: 25%
+}
+
+/* Add the following styles to align label and input horizontally */
+.form-group.row-md-3 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.form-group.row-md-3 label {
+  flex: 0 0 auto;
+  margin-top: 8px;
+  margin-right: 20px; /* Adjust the margin as needed for spacing */
+}
+
+/* Set font size for input to match the font size of goals */
+.form-group.row-md-3 input {
+  font-size: 8px; /* Adjust the font size according to your goals font size */
+}
+
+.updateSectionTitle{
+  margin: 10px;
+}
+
+.updateFormCol{
+  margin: 10px 0px 20px
+}
 
 /*------------ CreateLeague -----------*/
 .createFormLabels {
