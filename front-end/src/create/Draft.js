@@ -23,8 +23,6 @@ function Draft({ teams, setTeams, shuffledPlayers }) {
   return (
   
     <div id="accordion">
-      {/* {console.log("users: ", users)}
-      {console.log("teams: ", teams)} */}
         
           <DraftRound round={1} users={users} setUsers={setUsers} teams={teams} setTeams={setTeams}/>
           <DraftRound round={2} users={users} setUsers={setUsers} teams={teams} setTeams={setTeams}/>

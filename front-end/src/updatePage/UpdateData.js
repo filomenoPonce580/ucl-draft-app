@@ -13,16 +13,21 @@ function UpdateData(){
         awayTeamGoals: ''
     }
 
+    const initialSeasonFormData = {
+      season: '',
+      teamIds: []
+    }
     const [users, setUsers] = useState([]);
     const [usersError, setUsersError] = useState(null);
     const [teams, setTeams] = useState([]);
     const [teamsError, setTeamsError] = useState(null);
     const [loggedIn, setLoggedIn] = useState(true); //set to false when not debugging
     const [formData, setFormData] = useState(initialFormData);  
-    const [results, setResults] = useState([])
-    const [resultsError, setResultsError] = useState(null)
-    const [seasons, setSeasons] = useState([])
-    const [seasonsError, setSeasonsError] = useState(null)
+    const [seasonFormData, setSeasonFormData] = useState(initialSeasonFormData);
+    const [results, setResults] = useState([]);
+    const [resultsError, setResultsError] = useState(null);
+    const [seasons, setSeasons] = useState([]);
+    const [seasonsError, setSeasonsError] = useState(null);
 
     useEffect(() => {
       const abortController = new AbortController();
@@ -116,7 +121,7 @@ function UpdateData(){
           <h1 className="mb-0">Update Scores</h1>        
         </div>
         <div className="title centered-container">
-          { !loggedIn ? <AdminLogin toggleLogin={toggleLogin} /> : <UpdateCard formData={formData} teams={teams} seasons={seasons} handleInputChange={handleInputChange} handleSubmit={handleSubmit}/>}
+          { !loggedIn ? <AdminLogin toggleLogin={toggleLogin} /> : <UpdateCard formData={formData} teams={teams} seasons={seasons} results={results} handleInputChange={handleInputChange} handleSubmit={handleSubmit} seasonFormData={seasonFormData}/>}
         </div>
       </div>
     )

@@ -1,8 +1,12 @@
 import React from "react";
+import AddSeasonCard from "./AddSeasonCard";
 
-function UpdateCard({ formData, teams, seasons, handleInputChange, handleSubmit }) {
+function UpdateCard({ formData, teams, seasons, results, handleInputChange, handleSubmit, seasonFormData}) {
   return (
     <div>    
+      {console.log("seasons: ", seasons)}
+      {console.log("teams: ", teams)}
+      {console.log("results: ", results)}
       <div className="card updateCard">
         <h5 className="card-header">Add Score</h5>
         <div className="card-body">
@@ -128,6 +132,8 @@ function UpdateCard({ formData, teams, seasons, handleInputChange, handleSubmit 
           </form>
         </div>
       </div>
+
+      <AddSeasonCard formData={seasonFormData} handleInputChange={handleInputChange}/>
     </div>
   );
 }
